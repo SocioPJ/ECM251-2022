@@ -2,7 +2,7 @@
 Repositório da disciplina ECM251
 # ECM251 - Utilizando Git
 
-Em primeiro lugar, configurar quem é o usuario(***Joao Socio***) e qual seu e-mail(***20.00704-3@maua.br***).
+Em primeiro lugar, configurar quem é o usuario(***Nome***) e qual seu e-mail(***email@email.com***).
 ```bash
 git config --global user.name "nome usuario"
 git config --global user.mail email@email.com
