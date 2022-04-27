@@ -23,4 +23,16 @@ public class Conta {
             return false;
         return destino.depositar(valor);
     }
+    public double getSaldo() {
+        return saldo;
+    }
+    public int getIdConta() {
+        return idConta;
+    }
+    @Override
+    public String toString() {
+        return "Conta [idConta=" + idConta + ", saldo=" + saldo + "]";
+    }
+    
 }
+
