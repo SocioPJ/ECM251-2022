@@ -7,5 +7,10 @@ public class Atividade1 {
         usuario1.getConta().depositar(1000);
         usuario2.getConta().depositar(250);
         usuario3.getConta().depositar(3000);
+
+        String qrCode1 = Transacoes.gerarQrCode(usuario1.getConta().getIdConta(), usuario1.getNome(), 250);      
+    }
+    private double extrairValorQrcode(String qrCode){
+        return Double.parseDouble(qrCode.split(";")[3]);
     }
 }
