@@ -19,10 +19,8 @@ public class Conta {
         return false;
     }
     public boolean transferir(Conta destino, double valor) {
-        if (this.sacar(valor)) {
-            destino.depositar(valor);
-            return true;
-        }
-        return false;
+        if(!sacar(valor))
+            return false;
+        return destino.depositar(valor);
     }
 }
