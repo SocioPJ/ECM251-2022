@@ -24,9 +24,6 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getCpf(){
-        return cpf;
-    }
     public String getEmail(){
         return email;
     }
