@@ -5,6 +5,6 @@ public class Aplicativo {
         Patinete patinete = new Patinete(Patinete.gerarID(), "Patinete", 5.0);
         Moto moto = new Moto(Moto.gerarID(), "Moto", 500.0);
         Usuario usuario = new Usuario("João", "Carro");
-        System.out.println(carro.toString());
+        usuario.testar(carro.getId(), carro.getCusto_hora());
     }
 }

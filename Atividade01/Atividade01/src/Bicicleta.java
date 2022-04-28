@@ -3,8 +3,5 @@ public class Bicicleta extends Locomoção {
         super(id, tipo, custo_hora);
     }
 
-    @Override
-    public String toString() {
-        return "id"+id+"tipo"+tipo+"custo_hora"+custo_hora;
-    }
+   
 }
