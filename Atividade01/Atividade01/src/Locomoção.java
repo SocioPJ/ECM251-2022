@@ -4,7 +4,7 @@ public class Locomoção {
     //Atributos
     protected static String id;
     protected String tipo;
-    protected double custo_hora;
+    protected static double custo_hora;
     // Construtor
     public Locomoção(String id, String tipo, double custo_hora) {
         Locomoção.id = gerarID();
@@ -21,6 +21,9 @@ public class Locomoção {
     }
     public double getCusto_hora() {
         return custo_hora;
+    }
+    public String getTipo() {
+        return tipo;
     }
     @Override
     public String toString() {
