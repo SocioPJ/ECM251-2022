@@ -10,7 +10,12 @@ public class Sistema {
         //Avaliação das jogadas
         String resultado = avaliaJogadas(jogada1, jogada2);
         //Exibição do resultado
+        
+        System.out.println(jogada1);
+        System.out.println(" VERSUS ");
+        System.out.println(jogada2);
         System.out.println("Resultado:" + resultado);
+
     }
 
     private static Jogada sortearJogada() {
