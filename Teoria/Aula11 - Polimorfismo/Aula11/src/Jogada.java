@@ -1,6 +1,6 @@
 public class Jogada {
-    private String venco;
-    public Jogada(String venco) {
+    private EnumJogadas venco;
+    public Jogada(EnumJogadas venco) {
         this.venco = venco;
     }
 
@@ -10,7 +10,7 @@ public class Jogada {
         return false;
     }
 
-    public String getTipo(){
-        return "Jogada";
+    public EnumJogadas getTipo(){
+        return EnumJogadas.PAPEL;
     }
 }
