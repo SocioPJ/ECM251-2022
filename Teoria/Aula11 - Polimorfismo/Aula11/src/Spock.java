@@ -5,6 +5,6 @@ public class Spock extends Jogada {
 
     @Override
     public EnumJogadas getTipo() {
-        return EnumJogadas.PAPEL;
+        return EnumJogadas.SPOCK;
     }
 }

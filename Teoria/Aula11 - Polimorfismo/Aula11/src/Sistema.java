@@ -2,6 +2,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Sistema {
     public static void rodar(){
+        
         //Usuario escolhe a jogada
         Jogada jogada1 = new Tesoura();
         //Sorteio da jogada para o PC

@@ -6,7 +6,7 @@ public class Pedra extends Jogada{
 
     @Override
     public EnumJogadas getTipo() {
-        return EnumJogadas.PAPEL;
+        return EnumJogadas.PEDRA;
     }
 
     

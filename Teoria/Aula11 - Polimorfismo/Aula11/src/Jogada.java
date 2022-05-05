@@ -7,13 +7,13 @@ public class Jogada {
     }
 
     public boolean verificarVenceu(Jogada jogada){
-        if(jogada.getTipo().equals(venco1))
+        if(jogada.getTipo().equals(venco1) || jogada.getTipo().equals(venco2))
             return true;
-        if(jogada.getTipo().equals(venco2))
-            return true;   
-        return false;
+        
+    return false;  
+        
     }
-
+    
     public EnumJogadas getTipo(){
         return EnumJogadas.PAPEL;
     }
