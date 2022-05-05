@@ -1,7 +1,7 @@
 public class Papel extends Jogada{
 
     public Papel() {
-        super(EnumJogadas.PEDRA);
+        super(EnumJogadas.PEDRA,EnumJogadas.SPOCK);
     }
 
     @Override
