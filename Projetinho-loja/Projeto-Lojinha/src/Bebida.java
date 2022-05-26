@@ -23,5 +23,10 @@ public class Bebida extends Produto {
     public EnumAlergias getAlergia() {
         return alergia;
     }
+    @Override
+    public double gerarPrecoComDesconto() {
+        
+        return getPreco() * 0.9;
+    }
 
 }

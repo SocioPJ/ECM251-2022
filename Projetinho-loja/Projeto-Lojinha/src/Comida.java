@@ -1,4 +1,4 @@
-public class Comida extends Produto implements IGerarDesconto {
+public class Comida extends Produto {
     private final double peso;
     private final EnumTipoComida tipo;
     private final String origem;

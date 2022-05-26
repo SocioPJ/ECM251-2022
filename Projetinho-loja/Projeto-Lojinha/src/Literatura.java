@@ -23,5 +23,9 @@ public class Literatura extends Produto {
     public EnumGeneroLiteratura getGenero() {
         return genero;
     }
+    @Override
+    public double gerarPrecoComDesconto() {
+        return getPreco();
+    }
     
 }

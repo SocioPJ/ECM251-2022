@@ -1,4 +1,4 @@
-public abstract class Produto{
+public abstract class Produto implements IGerarDesconto {
     private final double preco;
     private int quantidade;
     private final String descricao;
