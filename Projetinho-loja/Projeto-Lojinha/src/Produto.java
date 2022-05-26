@@ -9,4 +9,19 @@ public abstract class Produto{
         this.descricao = descricao;
         this.nome = nome;
     }
+    public double getPreco() {
+        return preco;
+    }
+    public int getQuantidade() {
+        return quantidade;
+    }
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    public String getDescricao() {
+        return descricao;
+    }
+    public String getNome() {
+        return nome;
+    }
 }

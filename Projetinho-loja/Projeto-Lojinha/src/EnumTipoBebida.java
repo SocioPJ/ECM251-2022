@@ -1,0 +1,3 @@
+public enum EnumTipoBebida {
+    AGUA, SUCO, REFRIGERANTE, CAFE, CHA, ALCOOLICOS, ENERGETICO;
+}
