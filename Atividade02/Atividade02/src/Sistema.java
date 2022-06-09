@@ -4,7 +4,7 @@ public class Sistema {
 private static EnumHorario horario;
     public static void run(){
         horario = EnumHorario.REGULAR;
-        System.out.println("===== Boas vindas! ===== \n");
+        System.out.println("===== Boas vindas ao MAsk_S0c13ty! ===== \n");
         System.out.println("Horário de trabalho atual: " + horario);
         
         List<Members> members = new ArrayList<Members>();
