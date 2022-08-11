@@ -1,10 +1,13 @@
+from pydoc import describe
+
+
 class Carrinho:
     #Método construtor
     def __init__(self): # __init__ é um método construtor do Python
         self.itens = []
     #Demais métodos
     def get_valor_total(self):
-        pass
+        pass    # equivalente a abre e fecha chaves vazios
     def get_quantidade_itens(self):
         pass
     def adicionar_item(self, item):
@@ -14,14 +17,25 @@ class Carrinho:
 
 class Item():
     #Construtor
-    def __init__(self, nome, valor):
-        self.nome = nome
-        self.valor = valor
+    def __init__(self, preço, nome, descrição = None):
+        self._nome = nome
+        self._preço = preço
+        self._descrição = descrição
     def get_nome(self):
-        return self.nome
-    def get_valor(self):
-        return self.valor
+        return self._nome
+
+    #Métodos
 
 
-item = Item("Celular", 1000)
-print(item.get_nome())
+item1 = Item(
+    preço = 350,
+    nome = 'Dark Souls 3',
+    descrição = 'Jogo de RPG')
+
+item2 = Item(
+    preço = 100,
+    nome = 'Elden Ring',
+    descrição = 'Jogo de RPG Mundo aberto')
+
+print (item1.get_nome())
+print(item1)
