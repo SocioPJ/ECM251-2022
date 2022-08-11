@@ -23,14 +23,15 @@ class Item():
         self._descrição = descrição
     def get_nome(self):
         return self._nome
+    def __str__(self):
+        return f'Nome : {self._nome}, Preço: {self._preço}, Descrição: {self._descrição}'
 
     #Métodos
 
 
 item1 = Item(
     preço = 350,
-    nome = 'Dark Souls 3',
-    descrição = 'Jogo de RPG')
+    nome = 'Dark Souls 3')
 
 item2 = Item(
     preço = 100,
