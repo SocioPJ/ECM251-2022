@@ -12,3 +12,7 @@ class Item():
         return self._descrição
     def __str__(self):
         return f'Nome : {self._nome}, Preço: {self._preço}, Descrição: {self._descrição}'
+    def __eq__ (self, __o: object) -> bool:
+        if isinstance(__o,Item):
+            return self._nome == __o.get_nome()
+        return False
