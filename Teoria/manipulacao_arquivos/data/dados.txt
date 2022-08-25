@@ -1,0 +1,4 @@
+& C:/Python310/python.exe c:/Maua/Programação/ECM251-2022/Teoria/manipulacao_arquivos/main.py
+Cruzeiro
+Palmeira
+Corintians
