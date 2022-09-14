@@ -1,10 +1,15 @@
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 from tkinter import *
-from modelos.login import LoginUI
+from login import LoginUI
 
-loginUI = LoginUI()
-loginUI.base.mainloop()
+
+if __name__ == "__main__":
+    app = LoginUI()
+    app.run()
+
+
+
 
 # class MinhaUI():
 #     def acao_botao(self):
@@ -53,6 +58,3 @@ loginUI.base.mainloop()
 
     
 
-# if __name__ == "__main__":
-#     app = MinhaUI()
-#     app.run()
