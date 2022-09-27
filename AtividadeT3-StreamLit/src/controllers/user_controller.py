@@ -20,3 +20,8 @@ class UserController():
                 return True            
         return False
     
+    def getName(self, name):
+        for user in self.users:
+            if user.name == name:
+                return user.name
+        return None

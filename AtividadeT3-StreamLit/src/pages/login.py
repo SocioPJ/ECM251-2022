@@ -11,11 +11,13 @@ with col2:
             
     nome_usuario = st.text_input(
         label = "Nome de usuário",
+         
                
     )
     senha_usuario = st.text_input(
         label = "Senha",
         type = "password",
+        
     )        
     if st.button("Entrar"):
         user_controller = UserController()
@@ -27,10 +29,10 @@ with col2:
         else:
             st.error("Login ou senha incorretos!")
     
-    
-    if "zoro" in st.session_state:
-        cachorro, gato, porco = st.tabs(["Cachorro", "Gato", "Porco"])
-               
+    def verificar_nome():
+        for i in range(len(UserController().getUsers())):
+            if nome_usuario == UserController().getUsers()[i].name:
+                st.session_state["nome"] = nome_usuario       
       
 
 
