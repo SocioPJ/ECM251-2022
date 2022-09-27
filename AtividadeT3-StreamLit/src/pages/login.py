@@ -1,3 +1,5 @@
+from cProfile import label
+from controllers.user_controller import UserController
 import streamlit as st
 col1, col2, col3 = st.columns(3,gap= "small")
 with col2:
@@ -5,15 +7,27 @@ with col2:
         image = "assets/github_icon.png",
         width = 100,      
     )
-    st.text_input(
-        label = "Nome de usuário",       
+    
+            
+    nome_usuario = st.text_input(
+        label = "Nome de usuário",
+               
     )
-    st.text_input(
+    senha_usuario = st.text_input(
         label = "Senha",
-    )
-    st.button(
+        type = "password",
+    )        
+    if st.button("Entrar"):
+        user_controller = UserController()
+        if user_controller.checkLogin(nome_usuario, senha_usuario):
+            st.success("Login realizado com sucesso!")
+        else:
+            st.error("Login ou senha incorretos!")
+            
         
-    )
+
+
+    
     
 
 

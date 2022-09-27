@@ -1,20 +1,33 @@
 from cProfile import label
+from re import A
 from turtle import onclick, width
 import streamlit as st
+from controllers.user_controller import UserController
 
 main, info, cadastro = st.tabs(["Home", "Info", "Cadastro"])
-
+if UserController.verificar() == True:
+    st.write("Ola Mundo!")
 with main:
     col1 , col2, col3, col4= st.columns(4)
+    def clicado():
+        click = True
+        st.session_state["kratos"] = click
     with col1:
         st.image(
             image = "assets/github_icon.png",
             width = 75,
         )
+        st.button(
+        label="Clicar aqui🍳",
+        help="a!",
+        on_click=clicado
+    )
     with col2:
         st.text_input(
             label = "",
         )
+        if "kratos" in st.session_state :
+            casa , infor, home = st.tabs(["Home", "Info", "Cadastro"])
     with col3:
         st.image(
             image = "assets/search_icon_flat.png",
@@ -88,4 +101,3 @@ with cadastro:
             caption="Professor Oak"
         )
 
-st.sidebar.title("Navegação")
