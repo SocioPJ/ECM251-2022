@@ -16,10 +16,7 @@ class UserController():
         user_teste = User(name=name, password=password, email=None)
         for user in self.users:
             if user.name == user_teste.name and user.password == user_teste.password:
-                return True
+                
+                return True            
         return False
-    def verificar(self,checkLogin()):
-        cond = False
-        if self.checkLogin() == True:
-            cond = True
-        return cond
+    

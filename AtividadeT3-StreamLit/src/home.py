@@ -5,8 +5,6 @@ import streamlit as st
 from controllers.user_controller import UserController
 
 main, info, cadastro = st.tabs(["Home", "Info", "Cadastro"])
-if UserController.verificar() == True:
-    st.write("Ola Mundo!")
 with main:
     col1 , col2, col3, col4= st.columns(4)
     def clicado():
@@ -26,8 +24,6 @@ with main:
         st.text_input(
             label = "",
         )
-        if "kratos" in st.session_state :
-            casa , infor, home = st.tabs(["Home", "Info", "Cadastro"])
     with col3:
         st.image(
             image = "assets/search_icon_flat.png",

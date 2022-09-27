@@ -19,12 +19,19 @@ with col2:
     )        
     if st.button("Entrar"):
         user_controller = UserController()
+        cond = False
         if user_controller.checkLogin(nome_usuario, senha_usuario):
             st.success("Login realizado com sucesso!")
+            cond = True
+            st.session_state["zoro"] = cond
         else:
             st.error("Login ou senha incorretos!")
-            
-        
+    
+    
+    if "zoro" in st.session_state:
+        cachorro, gato, porco = st.tabs(["Cachorro", "Gato", "Porco"])
+               
+      
 
 
     
