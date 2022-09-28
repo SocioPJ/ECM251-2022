@@ -8,8 +8,12 @@ def layout_carrinho(product):
     st.write('__________________________________________________________')
     colA, colB, colC = st.columns(3)
     with colA:
-        st.subheader(product.getList()[0].name)
-        st.image(image = product.getList()[0].url, width = 250)
+        st.image(image = product.getList()[0].url, width = 150)
+    with colB:
+        st.subheader("Adicionado")
+        st.write(product.getList()[0].name)
+        
+
 
     
 try:
