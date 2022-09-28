@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
         "./AtividadeT3/Projeto"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }
