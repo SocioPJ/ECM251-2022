@@ -28,11 +28,7 @@ with col2:
             st.session_state["zoro"] = cond
         else:
             st.error("Login ou senha incorretos!")
-    
-    def verificar_nome():
-        for i in range(len(UserController().getUsers())):
-            if nome_usuario == UserController().getUsers()[i].name:
-                st.session_state["nome"] = nome_usuario       
+        
       
 
 

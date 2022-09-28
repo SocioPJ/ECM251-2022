@@ -7,6 +7,7 @@ from pages.login import verificar_nome
 def carrinho_click():
     click = True
     st.session_state["botao_carrinho"] = click
+    
 
 def layout_produtos(product):
     colA, colB , colC = st.columns(3)
@@ -20,7 +21,8 @@ def layout_produtos(product):
         # botao = st.button("Adicionar ao carrinho")
     with colC:
         st.metric(label = "Preço", value = f'R$ {product.price}', delta = -0.5)
-        st.number_input("Quantidade", min_value=1, max_value=10, value=1)
+        quantidade_produto = st.number_input("Quantidade", min_value=1, max_value=10, value=1)
+        st.session_state["quantidade_produto"] = quantidade_produto
         st.text('🚛 Chegará grátis amanhã!!')
         st.button(
             label = "Adicionar ao carrinho",
