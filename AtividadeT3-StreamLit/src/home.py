@@ -21,13 +21,11 @@ try:
             st.session_state["kratos"] = click
         # Coluna 1
         with col1:
-            # st.image(
-            # image = "assets/github_icon.png",
-            # width = 75,
-            # )
-            
-            st.text(
-            st.subheader("Produtos selecionados especialmente para você!")
+            st.image(
+            image = "assets/github_icon.png",
+            width = 75,
+            )
+        st.subheader("Produtos selecionados especialmente para você!")
             # Primeiro Produto:
         
         # for i in range(len(ProductController().getProducts())):

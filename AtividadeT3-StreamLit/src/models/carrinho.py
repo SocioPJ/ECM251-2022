@@ -7,6 +7,5 @@ class Carrinho():
         
     
     def calcular_valor():
-        valor =     
-        
+        pass
         
