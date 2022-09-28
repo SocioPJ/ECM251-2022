@@ -3,6 +3,8 @@ from controllers.user_controller import UserController
 from models.carrinho import Carrinho
 from controllers.product_controller import ProductController
 from controllers.carrinho_controller import CarrinhoController
+import time
+
 
 def layout_carrinho(product):
     st.write('__________________________________________________________')
@@ -49,8 +51,16 @@ try:
             options = ["Cartão de crédito", "Boleto", "Pix"],
         )
         if st.button("Finalizar compra"):
-            st.write('Compra realizada com sucesso!')
-            st.write('Obrigado por comprar conosco!')
+
+            my_bar = st.progress(0)
+            for percent_complete in range(100):
+                time.sleep(0.1)
+                my_bar.progress(percent_complete + 1)
+                if percent_complete == 99:
+                    st.balloons()
+                    st.success("Compra finalizada com sucesso!")
+                    st.session_state["carrinho"].clear()
+            
             
 
 
