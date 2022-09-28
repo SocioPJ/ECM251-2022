@@ -4,17 +4,22 @@ from models.carrinho import Carrinho
 from controllers.product_controller import ProductController
 from controllers.carrinho_controller import CarrinhoController
 
-carrinho = Carrinho()
 def layout_carrinho(product):
     st.write('__________________________________________________________')
     colA, colB, colC = st.columns(3)
     with colA:
-        st.subheader(product.name)
-        st.image(image = product.url, width = 250)
+        st.subheader(product.getList()[0].name)
+        st.image(image = product.getList()[0].url, width = 250)
+
     
 try:
     if st.session_state.zoro:
         st.title("Carrinho")
+        layout_carrinho(st.session_state["carrinho"])
+        # st.write(st.session_state["carrinho"].getList()[0])
+        # st.write(st.session_state["carrinho"].getList()[0][1])
+
+
 
        
     else:

@@ -1,13 +1,12 @@
 from operator import truediv
 from turtle import onclick
+from models.carrinho import Carrinho
 import streamlit as st
 from controllers.user_controller import UserController
 from controllers.product_controller import ProductController
-from pages.login import verificar_nome
-def carrinho_click():
-    click = True
-    st.session_state["botao_carrinho"] = click
-    
+if "carrinho" not in st.session_state:
+    st.session_state["carrinho"] = Carrinho()
+
 
 def layout_produtos(product):
     colA, colB , colC = st.columns(3)
@@ -17,20 +16,14 @@ def layout_produtos(product):
      
     with colB: 
         st.text('      Novo | 256823 Vendidos')
-        # numero = st.number_input("Quantidade", min_value=1, max_value=10, value=1)
-        # botao = st.button("Adicionar ao carrinho")
     with colC:
         st.metric(label = "Preço", value = f'R$ {product.price}', delta = -0.5)
-        quantidade_produto = st.number_input("Quantidade", min_value=1, max_value=10, value=1)
-        st.session_state["quantidade_produto"] = quantidade_produto
+        quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1)
         st.text('🚛 Chegará grátis amanhã!!')
-        st.button(
-            label = "Adicionar ao carrinho",
-            on_click = carrinho_click,
-        )
-        if st.session_state.botao_carrinho == True:
-            st.write("Adicionado ao carrinho!")
-            st.session_state.botao_carrinho = False
+        if st.button("Adicionar ao carrinho"):
+            st.session_state["carrinho"].addProduct(product)
+
+            
         
         
 
