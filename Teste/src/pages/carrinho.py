@@ -6,12 +6,27 @@ from controllers.carrinho_controller import CarrinhoController
 
 def layout_carrinho(product):
     st.write('__________________________________________________________')
-    colA, colB, colC = st.columns(3)
+    colA, colB, colC, colD, colE = st.columns(5,gap = 'small')
     with colA:
-        st.image(image = product.getList()[0].url, width = 150)
+        st.image(image = product.getList()[0].url, width = 100)
     with colB:
         st.subheader("Adicionado")
         st.write(product.getList()[0].name)
+    
+    with colC:
+        st.subheader("Qtd.")
+        st.write(product.quantidade)
+    with colD:
+        st.subheader("Preço")
+        st.write(product.getList()[0].price)
+    with colE:
+        st.write('Frete: R$ 10,00')
+        st.metric(
+            label = "Total",
+            value = format(product.getList()[0].price*product.quantidade + 10, '.2f'),
+            )
+        
+
         
 
 
@@ -22,7 +37,21 @@ try:
         layout_carrinho(st.session_state["carrinho"])
         # st.write(st.session_state["carrinho"].getList()[0])
         # st.write(st.session_state["carrinho"].getList()[0][1])
-
+        st.write('')
+        st.write('')
+        st.write('')
+        st.write('')
+        st.write('')
+        st.write('')
+        st.write('')
+        st.selectbox(
+            label = "Forma de pagamento",
+            options = ["Cartão de crédito", "Boleto", "Pix"],
+        )
+        if st.button("Finalizar compra"):
+            st.write('Compra realizada com sucesso!')
+            st.write('Obrigado por comprar conosco!')
+            
 
 
        

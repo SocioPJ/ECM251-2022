@@ -22,6 +22,7 @@ def layout_produtos(product):
         st.text('🚛 Chegará grátis amanhã!!')
         if st.button("Adicionar ao carrinho"):
             st.session_state["carrinho"].addProduct(product)
+            st.session_state["carrinho"].verQuantidade(quantidade)
 
             
         
@@ -75,7 +76,7 @@ try:
         with col3:
             st.write("")
             st.write("")
-            
+
             st.image(
                 image = "assets/search_icon_flat.png",
                 width = 25,

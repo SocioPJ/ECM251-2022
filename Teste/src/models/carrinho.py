@@ -7,7 +7,11 @@ class Carrinho():
     def addProduct(self, product):
         self.products.append(product)
     
+    def verQuantidade(self,quantidade):
+        return self.quantidade*quantidade
+
     def getList(self):
         return self.products
 
-    
+    def getQuantidade(self):
+        return self.quantidade
