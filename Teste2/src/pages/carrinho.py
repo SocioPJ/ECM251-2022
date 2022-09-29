@@ -18,7 +18,6 @@ def layout_carrinho(product_carrinho):
         
     with colC:
         st.subheader("Qtd.")
-        quantidade_carrinho = product_carrinho.verQuantidade()
         st.write(product_carrinho.verQuantidade())
     with colD:
         st.subheader("Preço")

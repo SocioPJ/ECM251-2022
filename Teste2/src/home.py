@@ -124,7 +124,7 @@ try:
             st.write('')
             st.write('')
             st.write('')
-            st.text('      Novo | 256823 Vendidos')
+            st.text('      Novo | 5 Vendidos')
             st.write('')
             st.write('')
             st.write('')
@@ -156,7 +156,7 @@ try:
             st.text('    Novo | 1832450192 Vendidos')
         with colC:
             st.write('')
-            st.metric(label = "Preço", value = f'R$ {produto1.price}', delta = -0.5)
+            st.metric(label = "Preço", value = f'R$ {produto1.price}', delta = f'R$ 10')
             quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1)
             st.text('🚛 Chegará grátis amanhã!!')
             if st.button("Adicionar ao carrinho"):
@@ -174,7 +174,7 @@ try:
             st.write('')
             st.write('')
             st.write('')
-            st.metric(label = "Preço", value = f'R$ {produto2.price}', delta = -0.5)
+            st.metric(label = "Preço", value = f'R$ {produto2.price}', delta = f'R$ 300')
             quantidade2 = st.number_input("Quantidade ", min_value=1, max_value=10, value=1)
             st.text('🚛 Chegará grátis amanhã!!')
             if st.button("Adicionar ao carrinho "):
