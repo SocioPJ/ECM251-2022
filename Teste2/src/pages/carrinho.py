@@ -9,12 +9,13 @@ import time
 def layout_carrinho(product_carrinho):
     st.write('__________________________________________________________')
     colA, colB, colC, colD, colE = st.columns(5,gap = 'small')
+    
     with colA:
         st.image(image = product_carrinho.getList()[0].url, width = 100)
     with colB:
         st.subheader("Adicionado")
         st.write(product_carrinho.getList()[0].name)
-    
+        
     with colC:
         st.subheader("Qtd.")
         quantidade_carrinho = product_carrinho.verQuantidade()
@@ -27,13 +28,14 @@ def layout_carrinho(product_carrinho):
         st.metric(
             label = "Total",
             value = format(product_carrinho.getList()[0].price*product_carrinho.verQuantidade() + 10, '.2f'),
-            )
+                )
         
     
 try:
     if st.session_state.zoro:
         st.title("Carrinho")
         layout_carrinho(st.session_state["carrinho"])
+        
         # st.write(st.session_state["carrinho"].getList()[0])
         # st.write(st.session_state["carrinho"].getList()[0][1])
         st.write('')

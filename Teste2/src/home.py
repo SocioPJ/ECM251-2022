@@ -10,6 +10,10 @@ if "carrinho" not in st.session_state:
     
 if "quantidade" not in st.session_state:
     st.session_state["quantidade"] = 0
+if "quantidade2" not in st.session_state:
+    st.session_state["quantidade2"] = 0
+if "quantidade3" not in st.session_state:
+    st.session_state["quantidade3"] = 0
 
 
 def layout_produtos(product):
@@ -22,18 +26,12 @@ def layout_produtos(product):
         st.text('      Novo | 256823 Vendidos')
     with colC:
         st.metric(label = "Preço", value = f'R$ {product.price}', delta = -0.5)
-        quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1)
+        quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1, key = product.name)
         st.text('🚛 Chegará grátis amanhã!!')
         if st.button("Adicionar ao carrinho"):
             st.session_state["carrinho"].addProduct(product)
             st.session_state["quantidade"] = quantidade
             
-            
-
-            
-        
-        
-
 print(ProductController().getProducts())   
 if "zoro" not in st.session_state:
     st.session_state.zoro = False
@@ -59,9 +57,9 @@ try:
         # for i in range(len(ProductController().getProducts())):
         #     layout_produtos(ProductController().getProducts()[i])
             
-        # layout_produtos(ProductController().getProducts()[0])
+    
         # st.write("__________________________________________________________")
-        # layout_produtos(ProductController().getProducts()[1])
+        #  layout_produtos(ProductController().getProducts()[1])
         # # st.write('__________________________________________________________')
         # layout_produtos(ProductController().getProducts()[2])
         # for i in range(len(ProductController().getProducts())):
@@ -71,23 +69,32 @@ try:
         #         image = ProductController().getProducts()[i].url,
         #         width = 200
         #         )
+        
+        
         produto1 = ProductController().getProducts()[0]
         produto2 = ProductController().getProducts()[1]
         produto3 = ProductController().getProducts()[2]
         colA, colB , colC = st.columns(3)
         with colA:
+            
             st.subheader(produto1.name)
-            st.image(image = produto1.url, width = 250)
+            st.image(image = produto1.url, width = 200)
             st.write('')
             st.write('')
             st.write('')
-           
             st.write('__________________________________________________________')
             st.subheader(produto2.name)
-            st.image(image = produto2.url, width = 250)
+            st.image(image = produto2.url, width = 200)
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('__________________________________________________________')
+            st.subheader(produto3.name)
+            st.image(image = produto3.url, width = 200)
             
      
-        with colB: 
+        with colB:
+            st.text('')
             st.text('      Novo | 256823 Vendidos')
             st.write('')
             st.write('')
@@ -111,8 +118,44 @@ try:
             st.write('')
             st.write('')
             st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
             st.text('      Novo | 256823 Vendidos')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+        
+            st.text('    Novo | 1832450192 Vendidos')
         with colC:
+            st.write('')
             st.metric(label = "Preço", value = f'R$ {produto1.price}', delta = -0.5)
             quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1)
             st.text('🚛 Chegará grátis amanhã!!')
@@ -125,24 +168,36 @@ try:
             st.write('')
             st.write('')
             st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
             st.metric(label = "Preço", value = f'R$ {produto2.price}', delta = -0.5)
             quantidade2 = st.number_input("Quantidade ", min_value=1, max_value=10, value=1)
             st.text('🚛 Chegará grátis amanhã!!')
             if st.button("Adicionar ao carrinho "):
                 st.session_state["carrinho"].addProduct(produto2)
-                st.session_state["quantidade"] = quantidade2
+                st.session_state["quantidade2"] = quantidade2
             st.write('')
             st.write('')
             st.write('')
             st.write('')
             st.write('')
             st.write('')
-            st.metric(label = "Preço", value = f'R$ {produto3.price}', delta = -0.5)
-            quantidade3 = st.number_input("Quantidade ", min_value=1, max_value=10, value=1)
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.metric(label = "Preço", value = f'R$ {produto3.price}', delta = f'R$ {produto3.price}')
+            quantidade3 = st.number_input("Quantidade  ", min_value=1, max_value=10, value=1)
             st.text('🚛 Chegará grátis amanhã!!')
-            if st.button("Adicionar ao carrinho "):
+            if st.button("Adicionar ao carrinho  "):
                 st.session_state["carrinho"].addProduct(produto3)
-                st.session_state["quantidade"] = quantidade3
+                st.session_state["quantidade3"] = quantidade3
                 
             
             
