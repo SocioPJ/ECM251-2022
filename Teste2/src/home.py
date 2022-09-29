@@ -6,6 +6,10 @@ from controllers.user_controller import UserController
 from controllers.product_controller import ProductController
 if "carrinho" not in st.session_state:
     st.session_state["carrinho"] = Carrinho()
+    # carrinho = Carrinho()
+    
+if "quantidade" not in st.session_state:
+    st.session_state["quantidade"] = 0
 
 
 def layout_produtos(product):
@@ -22,7 +26,9 @@ def layout_produtos(product):
         st.text('🚛 Chegará grátis amanhã!!')
         if st.button("Adicionar ao carrinho"):
             st.session_state["carrinho"].addProduct(product)
-            st.session_state["carrinho"].verQuantidade(quantidade)
+            st.session_state["quantidade"] = quantidade
+            
+            
 
             
         

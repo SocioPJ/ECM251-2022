@@ -6,26 +6,26 @@ from controllers.carrinho_controller import CarrinhoController
 import time
 
 
-def layout_carrinho(product):
+def layout_carrinho(product_carrinho):
     st.write('__________________________________________________________')
     colA, colB, colC, colD, colE = st.columns(5,gap = 'small')
     with colA:
-        st.image(image = product.getList()[0].url, width = 100)
+        st.image(image = product_carrinho.getList()[0].url, width = 100)
     with colB:
         st.subheader("Adicionado")
-        st.write(product.getList()[0].name)
+        st.write(product_carrinho.getList()[0].name)
     
     with colC:
         st.subheader("Qtd.")
-        st.write(product.quantidade)
+        st.write(product_carrinho.verQuantidade())
     with colD:
         st.subheader("Preço")
-        st.write(product.getList()[0].price)
+        st.write(product_carrinho.getList()[0].price)
     with colE:
         st.write('Frete: R$ 10,00')
         st.metric(
             label = "Total",
-            value = format(product.getList()[0].price*product.quantidade + 10, '.2f'),
+            value = format(product_carrinho.getList()[0].price*product_carrinho.verQuantidade() + 10, '.2f'),
             )
         
 
