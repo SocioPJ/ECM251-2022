@@ -8,26 +8,29 @@ import time
 
 def layout_carrinho(product_carrinho):
     st.write('__________________________________________________________')
-    colA, colB, colC, colD, colE = st.columns(5,gap = 'small')
     
-    with colA:
-        st.image(image = product_carrinho.getList()[0].url, width = 100)
-    with colB:
-        st.subheader("Adicionado")
-        st.write(product_carrinho.getList()[0].name)
-        
-    with colC:
-        st.subheader("Qtd.")
-        st.write(product_carrinho.verQuantidade())
-    with colD:
-        st.subheader("Preço")
-        st.write(product_carrinho.getList()[0].price)
-    with colE:
-        st.write('Frete: R$ 10,00')
-        st.metric(
-            label = "Total",
-            value = format(product_carrinho.getList()[0].price*product_carrinho.verQuantidade() + 10, '.2f'),
-                )
+    print(len(product_carrinho.getList()))
+    for item in product_carrinho.getList():
+        with st.container():
+            colA, colB, colC, colD, colE = st.columns(5,gap = 'small')
+            with colA:
+                st.image(image = item.url, width = 100)
+            with colB:
+                st.subheader("Adicionado")
+                st.write(item.name)
+                
+            with colC:
+                st.subheader("Qtd.")
+                st.write(product_carrinho.verQuantidade())
+            with colD:
+                st.subheader("Preço")
+                st.write(item.price)
+            with colE:
+                st.write('Frete: R$ 10,00')
+                st.metric(
+                    label = "Total",
+                    value = format(item.price*product_carrinho.verQuantidade() + 10, '.2f'),
+                        )
         
     
 try:
@@ -57,7 +60,7 @@ try:
                 if percent_complete == 99:
                     st.balloons()
                     st.success("Compra finalizada com sucesso!")
-                    st.session_state["carrinho"].clear()
+                    st.session_state["carrinho"] = 0
             
             
 

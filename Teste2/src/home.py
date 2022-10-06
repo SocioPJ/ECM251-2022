@@ -215,7 +215,7 @@ try:
                 width = 25,
                 )      
         with col4:
-            st.subheader(f"Bem vindo, joao!")
+            st.subheader(f"Bem vindo, joao")
             st.subheader(
                 label = st.session_state["zoro"],
                 )

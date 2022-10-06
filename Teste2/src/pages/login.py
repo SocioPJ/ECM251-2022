@@ -1,6 +1,8 @@
 from cProfile import label
 from controllers.user_controller import UserController
 import streamlit as st
+        
+
 col1, col2, col3 = st.columns(3,gap= "small")
 with col2:
     st.image(
@@ -14,6 +16,9 @@ with col2:
          
                
     )
+    if "usuario" not in st.session_state:
+        st.session_state["user"] = UserController().getUser(nome_usuario)
+        
     senha_usuario = st.text_input(
         label = "Senha",
         type = "password",
