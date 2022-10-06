@@ -6,7 +6,10 @@ class Carrinho():
         self.quantidade = 1
 
     def addProduct(self, product):
-        self.products.append(product)
+        if product not in st.session_state["carrinho"].getList():
+            self.products.append(product)
+        else:
+            st.error("Produto já adicionado ao carrinho!")
     
     def verQuantidade(self):
         return self.quantidade*st.session_state["quantidade"]

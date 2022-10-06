@@ -14,10 +14,7 @@ with col2:
     nome_usuario = st.text_input(
         label = "Nome de usuário",
          
-               
     )
-    if "usuario" not in st.session_state:
-        st.session_state["user"] = UserController().getUser(nome_usuario)
         
     senha_usuario = st.text_input(
         label = "Senha",

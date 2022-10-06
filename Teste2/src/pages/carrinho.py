@@ -8,7 +8,6 @@ import time
 
 def layout_carrinho(product_carrinho):
     st.write('__________________________________________________________')
-    
     print(len(product_carrinho.getList()))
     for item in product_carrinho.getList():
         with st.container():
@@ -37,7 +36,10 @@ try:
     if st.session_state.zoro:
         st.title("Carrinho")
         layout_carrinho(st.session_state["carrinho"])
-        
+        # st.write('Frete: R$ 10,00')
+        # for product in st.session_state["carrinho"].getList():
+        #     print(product.price*product.verQuantidade())
+                   
         # st.write(st.session_state["carrinho"].getList()[0])
         # st.write(st.session_state["carrinho"].getList()[0][1])
         st.write('')

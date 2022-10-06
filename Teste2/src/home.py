@@ -161,7 +161,7 @@ try:
             st.text('🚛 Chegará grátis amanhã!!')
             if st.button("Adicionar ao carrinho"):
                 st.session_state["carrinho"].addProduct(produto1)
-                st.session_state["quantidade"] = quantidade   
+                st.session_state["quantidade"] = quantidade              
             st.write('')
             st.write('')
             st.write('')
