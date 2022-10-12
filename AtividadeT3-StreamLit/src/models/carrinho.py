@@ -1,19 +1,25 @@
 from controllers.product_controller import ProductController
+import streamlit as st
 class Carrinho():
-    def __init__(self,products,value):
-        self.products = products
-        products = []
-        self.value = 0
-        self.value = self.calcular_valor()
-        
-    def __str__(self) -> str:
-        return f'Carrinho(products:{self.products}, value:{self.value})'
+    def __init__(self):
+        self.products = []
+        self.quantidade = 1
+
+    def addProduct(self, product):
+        if product not in st.session_state["carrinho"].getList():
+            self.products.append(product)
+        else:
+            st.error("Produto já adicionado ao carrinho!")
     
-    def getProducts(self):
-        return self.products
-    
+    def verQuantidade(self):
+        return self.quantidade*st.session_state["quantidade"]
+
     def getList(self):
-        i=0
-        for i in range(len(self.products)):
-            cont = i+1
-        
+        return self.products
+
+    def getQuantidade(self):
+        return self.quantidade
+    
+    def removeProduct(self):
+        self.products = []
+        self.quantidade = 1

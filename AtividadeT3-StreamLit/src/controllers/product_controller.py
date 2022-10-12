@@ -3,9 +3,9 @@ class ProductController():
     def __init__(self):
         #Carrega os dados dos produtos
         self.product = [
-            Product("Paçoca",10.99,"https://www.acasaencantada.com.br/wp-content/uploads/2021/09/casaencantada_capablog_pacoca-fit-1200x900.png"),
-            Product("Pimenta verde",5.99,"https://tudoela.com/wp-content/uploads/2018/09/Pimenta-verde-3.jpg"),
-            Product("Berinjela",399.90,"https://static.tuasaude.com/media/article/2n/7p/berinjela_14525_l.jpg"),
+            Product("Travesseiro Albedo",89.97,"https://http2.mlstatic.com/D_NQ_NP_2X_947943-MLB49335290710_032022-F.webp"),
+            Product("Travesseiro Sukuna",140.99,"https://http2.mlstatic.com/D_NQ_NP_2X_829677-MLB49337211586_032022-F.webp"),
+            Product("Travesseiro Makima",99.9,"https://http2.mlstatic.com/D_NQ_NP_2X_660537-MLB49337065154_032022-F.webp"),
         ]
     def getProducts(self):
         for i in range(len(self.product)):

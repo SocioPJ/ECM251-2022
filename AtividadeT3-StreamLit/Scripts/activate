@@ -28,6 +28,7 @@ deactivate () {
     fi
 
     unset VIRTUAL_ENV
+    unset VIRTUAL_ENV_PROMPT
     if [ ! "${1:-}" = "nondestructive" ] ; then
     # Self destruct!
         unset -f deactivate
@@ -37,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="E:\ECM251-2022\AtividadeT3-StreamLit"
+VIRTUAL_ENV="C:\Maua\Programação\ECM251-2022\AtividadeT3-Streamlit"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -54,8 +55,10 @@ fi
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
     _OLD_VIRTUAL_PS1="${PS1:-}"
-    PS1="(AtividadeT3-StreamLit) ${PS1:-}"
+    PS1="(AtividadeT3-Streamlit) ${PS1:-}"
     export PS1
+    VIRTUAL_ENV_PROMPT="(AtividadeT3-Streamlit) "
+    export VIRTUAL_ENV_PROMPT
 fi
 
 # This should detect bash and zsh, which have a hash command that must
