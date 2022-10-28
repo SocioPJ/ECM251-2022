@@ -7,7 +7,7 @@ class ProductController():
     #     for i in range(len(self.product)):
     #         return self.product
     def pegar_item(self, id):
-        item = ProductDAO.get_instance().pegar_item(id)
+        item = ProductDAO.get_instance().get
         return item
 
     def inserir_item(self, item) -> bool:
