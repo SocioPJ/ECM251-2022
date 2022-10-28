@@ -33,7 +33,7 @@ class ProductDAO:
         self.cursor.execute("""
             INSERT INTO Itens (id, nome, preco, url)
             VALUES(?,?,?,?);
-        """, (item.id, item.nome, item.preco, item.url))
+        """, (item.id,item .name,item.preco,item.url))
         self.conn.commit()
         self.cursor.close()
     
