@@ -1,7 +1,9 @@
-from src.controllers.product_controller import ProductController
-from src.models.product import Product
+from controllers.product_controller import ProductController
+from models.product import Product
+from dao.product_dao import ProductDAO
 
 controller = ProductController()
+
 
 # items = controller.pegar_todos_itens()
 # for item in items:
@@ -13,7 +15,9 @@ print(produto1.name)
 print(produto1.price)
 print(produto1.url)
 
-print(controller.inserir_item(produto1))
+# print(controller.inserir_item(produto1))
+
+print(ProductDAO.get_instance().inserir_item(produto1))
 
 
 

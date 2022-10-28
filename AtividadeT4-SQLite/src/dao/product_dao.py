@@ -1,4 +1,5 @@
-from src.models.product import Product
+
+from models.product import Product
 import sqlite3
 
 class ProductDAO:
@@ -11,11 +12,14 @@ class ProductDAO:
     @classmethod
     def get_instance(cls):
         if cls._instance == None:
-            cls._instance = ()
+            cls._instance = ProductDAO()
         return cls._instance
 
     def _connect(self):
-        self.conn = sqlite3.connect('../database/sqlite.db')
+        try:
+            self.conn = sqlite3.connect('./database/sqlite.db')
+        except:
+            print("Erro ao conectar")
         
     def get_all(self):
         try:
@@ -32,11 +36,14 @@ class ProductDAO:
             print('get_all DAO erro')
     
     def inserir_item(self, item):
-        self.cursor = self.conn.cursor()
-        self.cursor.execute("""
-            INSERT INTO Itens (id, name, price, url)
-            VALUES(?,?,?,?);
-        """, (item.id,item .name,item.price,item.url))
-        self.conn.commit()
-        self.cursor.close()
+        try:
+            self.cursor = self.conn.cursor()
+            self.cursor.execute("""
+                INSERT INTO Products (id, name, price, url)
+                VALUES(?,?,?,?);
+            """, (item.id,item.name,item.price,item.url))
+            self.conn.commit()
+            self.cursor.close()
+        except:
+            raise Exception("Erro inserir item dao")
     

@@ -1,5 +1,5 @@
-from src.dao.product_dao import ProductDAO
-from src.models.product import Product
+from dao.product_dao import ProductDAO
+from models.product import Product
 class ProductController():
     def __init__(self):
         pass 
@@ -16,6 +16,10 @@ class ProductController():
         except:
             return False
         return True
+    
+    def pegar_todos_itens(self) -> list[Product]:
+        itens = ProductDAO.get_instance().get_all()
+        return itens
     
     
     
