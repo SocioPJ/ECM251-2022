@@ -27,3 +27,13 @@ class ProductDAO:
             resultados.append(Product(id=resultado[0], nome=resultado[1], preco=resultado[2],url=resultado[3]))
         self.cursor.close()
         return resultados
+    
+    def inserir_item(self, item):
+        self.cursor = self.conn.cursor()
+        self.cursor.execute("""
+            INSERT INTO Itens (id, nome, preco, url)
+            VALUES(?,?,?,?);
+        """, (item.id, item.nome, item.preco, item.url))
+        self.conn.commit()
+        self.cursor.close()
+    
