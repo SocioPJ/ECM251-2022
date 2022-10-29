@@ -15,8 +15,16 @@ print(produto1.name)
 print(produto1.price)
 print(produto1.url)
 
-print(controller.inserir_item(produto1))
-print(controller.deletar_item(1))
+id_input = int(input("digite id: "))
+name_input = input("digite nome: ")
+price_input = float(input("digite preço: "))
+url_input = input('digite url:')
+
+produto2 = Product(id_input,name_input,price_input,url_input)
+controller.inserir_item(produto2)
+
+# print(controller.inserir_item(produto1))
+# print(controller.deletar_item(1))
 
 
 #print(ProductDAO.get_instance().inserir_item(produto1))
