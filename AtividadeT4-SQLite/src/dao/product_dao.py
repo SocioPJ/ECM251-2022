@@ -18,6 +18,7 @@ class ProductDAO:
     def _connect(self):
         try:
             self.conn = sqlite3.connect('./database/sqlite.db')
+            print('Conectado')
         except:
             print("Erro ao conectar")
         
@@ -45,5 +46,5 @@ class ProductDAO:
             self.conn.commit()
             self.cursor.close()
         except:
-            raise Exception("Erro inserir item dao")
+            print("ID Produto ja inserido antes, tente outro ID")
     

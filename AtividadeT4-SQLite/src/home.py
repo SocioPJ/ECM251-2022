@@ -1,5 +1,4 @@
-from operator import truediv
-from turtle import onclick
+
 from models.carrinho import Carrinho
 import streamlit as st
 from controllers.user_controller import UserController
@@ -7,6 +6,7 @@ from controllers.product_controller import ProductController
 if "carrinho" not in st.session_state:
     st.session_state["carrinho"] = Carrinho()
     # carrinho = Carrinho()
+
     
 if "quantidade" not in st.session_state:
     st.session_state["quantidade"] = 0
