@@ -22,6 +22,7 @@ url_input = input('digite url:')
 
 # produto2 = Product(id_input,name_input,price_input,url_input)
 controller.inserir_item(Product(id_input,name_input,price_input,url_input))
+controller.deletar_item(1)
 
 # print(controller.inserir_item(produto1))
 # print(controller.deletar_item(1))

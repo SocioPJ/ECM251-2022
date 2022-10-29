@@ -1,11 +1,18 @@
+from tkinter.tix import INTEGER
+from token import STRING
 import streamlit as st
+from controllers.product_controller import ProductController
+from models.product import Product
 
+
+controller = ProductController()
 i = 0
 if st.session_state.zoro:
     st.title("Cadastrar Produtos")
     id_input = st.text_input(
         label = "Digite o id do novo produto"
     )
+    
     if id_input != "":
         i+=1
     print(id_input)
@@ -14,9 +21,10 @@ if st.session_state.zoro:
     name_input = st.text_input(
         label= "Digite o nome do novo produto"
         )
+    
     if name_input != "":
         i+=1
-    
+   
     print(name_input)
     print(f'numero: {i}')
     
@@ -42,6 +50,7 @@ if st.session_state.zoro:
             if st.button("Cadastrar"):
                 if i == 4:
                     #st.session_state.zoro = False
+                    controller.inserir_item(Product(id_input,name_input,price_input,url_input))
                     st.success("Produto cadastrado com sucesso")
                 else:
                     st.warning("Preencha todos os campos!")
