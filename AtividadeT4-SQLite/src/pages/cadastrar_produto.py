@@ -9,8 +9,10 @@ controller = ProductController()
 i = 0
 if st.session_state.zoro:
     st.title("Cadastrar Produtos")
-    id_input = st.text_input(
-        label = "Digite o id do novo produto"
+    id_input = st.number_input(
+        label = "Digite o id do novo produto",
+        min_value = 0,
+        
     )
     
     if id_input != "":
@@ -28,8 +30,12 @@ if st.session_state.zoro:
     print(name_input)
     print(f'numero: {i}')
     
-    price_input = st.text_input(
-        label = "Digite o preço do novo produto"
+    price_input = st.number_input(
+        label = "Digite o preço do novo produto",
+        min_value= 0.01,
+        max_value= 1000000.00,
+        step= 0.01,
+        format='%.2f'
         )
     if price_input != "":
         i+=1
@@ -52,9 +58,11 @@ if st.session_state.zoro:
                     #st.session_state.zoro = False
                     controller.inserir_item(Product(id_input,name_input,price_input,url_input))
                     st.success("Produto cadastrado com sucesso")
+                    
                 else:
                     st.warning("Preencha todos os campos!")
                     #st.session_state.zoro = True
+                    
             
 else:
     st.title("Bem vindo ao meu site!")
