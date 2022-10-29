@@ -4,9 +4,9 @@ from models.product import Product
 class ProductController():
     def __init__(self):
         pass 
-    def getProducts(self):
-        for i in range(len(self.product)):
-            return self.product
+    # def getProducts(self):
+    #     for i in range(len(self.product)):
+    #         return self.product
     def pegar_item(self, id):
         item = ProductDAO.get_instance()
         return item
