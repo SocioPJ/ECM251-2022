@@ -9,14 +9,15 @@ controller = ProductController()
 # for item in items:
 #     print(item)
     
-produto1 = Product(4,"aaaaa",19.99,"blabla")
+produto1 = Product(1,"aaaaa",19.99,"blabla")
 print(produto1.id)
 print(produto1.name)
 print(produto1.price)
 print(produto1.url)
 
 print(controller.inserir_item(produto1))
-print(controller.pegar_todos_itens())
+print(controller.deletar_item(1))
+
 
 #print(ProductDAO.get_instance().inserir_item(produto1))
 

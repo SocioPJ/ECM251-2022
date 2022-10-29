@@ -24,6 +24,9 @@ class ProductController():
             return itens
         except:
             print("Erro ao pegar todos itens")
+            
+    def deletar_item(self, id) -> bool:
+        return ProductDAO.get_instance().deletar_item(id)
     
     
     

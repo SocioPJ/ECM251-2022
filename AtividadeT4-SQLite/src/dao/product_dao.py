@@ -47,4 +47,17 @@ class ProductDAO:
             self.cursor.close()
         except:
             print("ID Produto ja inserido antes, tente outro ID")
+            
+    def deletar_item(self, id):
+        try:
+            self.cursor = self.conn.cursor()
+            self.cursor.execute(f"""
+                DELETE FROM Products 
+                WHERE id = '{id}'
+            """)
+            self.conn.commit()
+            self.cursor.close()
+        except:
+            return False
+        return True
     
