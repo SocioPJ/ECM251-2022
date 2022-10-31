@@ -16,6 +16,7 @@ if st.session_state.zoro:
         id_input = st.number_input(
             label = "Digite o id do novo produto",
             min_value = 0,
+            key = 'id_input'
             
         )
         
@@ -25,7 +26,8 @@ if st.session_state.zoro:
         print(f'numero: {i}')
         
         name_input = st.text_input(
-            label= "Digite o nome do novo produto"
+            label= "Digite o nome do novo produto",
+            key = 'name_input'
             )
         
         if name_input != "":
@@ -39,7 +41,8 @@ if st.session_state.zoro:
             min_value= 0.01,
             max_value= 1000000.00,
             step= 0.01,
-            format='%.2f'
+            format='%.2f',
+            key = 'price_input'
             )
         if price_input != "":
             i+=1
@@ -47,7 +50,8 @@ if st.session_state.zoro:
         print(f'numero: {i}')
         
         url_input = st.text_input(
-            label = "Digite o link da imagem do novo produto"
+            label = "Digite o link da imagem do novo produto",
+            key = 'url_input'
             )
         if url_input != "":
             i+=1
