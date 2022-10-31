@@ -4,68 +4,68 @@ import streamlit as st
 from controllers.product_controller import ProductController
 from models.product import Product
 
+st.set_page_config(layout='centered')
+    
 
 controller = ProductController()
 i = 0
 if st.session_state.zoro:
-    st.title("Cadastrar Produtos")
-    id_input = st.number_input(
-        label = "Digite o id do novo produto",
-        min_value = 0,
+    st.header("Cadastrar Produtos")
+    with st.form("entry_form", clear_on_submit=True):
         
-    )
-    
-    if id_input != "":
-        i+=1
-    print(id_input)
-    print(f'numero: {i}')
-    
-    name_input = st.text_input(
-        label= "Digite o nome do novo produto"
+        id_input = st.number_input(
+            label = "Digite o id do novo produto",
+            min_value = 0,
+            
         )
+        
+        if id_input != "":
+            i+=1
+        print(id_input)
+        print(f'numero: {i}')
+        
+        name_input = st.text_input(
+            label= "Digite o nome do novo produto"
+            )
+        
+        if name_input != "":
+            i+=1
     
-    if name_input != "":
-        i+=1
-   
-    print(name_input)
-    print(f'numero: {i}')
-    
-    price_input = st.number_input(
-        label = "Digite o preço do novo produto",
-        min_value= 0.01,
-        max_value= 1000000.00,
-        step= 0.01,
-        format='%.2f'
-        )
-    if price_input != "":
-        i+=1
-    print(price_input)
-    print(f'numero: {i}')
-    
-    url_input = st.text_input(
-        label = "Digite o link da imagem do novo produto"
-        )
-    if url_input != "":
-        i+=1
-    print(url_input)
-    print(f'numero: {i}')
-    
-    with st.container():
-        colA, colB, colC, colD = st.columns(4,gap = 'small')
-        with colD:
-            if st.button("Cadastrar"):
-                if i == 4:
-                    #st.session_state.zoro = False
-                    controller.inserir_item(Product(id_input,name_input,price_input,url_input))
-                    controller.atualizar_item(Product(id_input,name_input,price_input,url_input))
-                    
-                    st.success("Produto cadastrado com sucesso")
-                    # st.experimental_rerun()
-                    # Problema : Nao to conseguindo adicionar dois itens de uma vez sem q eu tenha q mudar alguma coisa no codigo
-                    
-                else:
-                    st.warning("Preencha todos os campos!")
-                    #st.session_state.zoro = True
+        print(name_input)
+        print(f'numero: {i}')
+        
+        price_input = st.number_input(
+            label = "Digite o preço do novo produto",
+            min_value= 0.01,
+            max_value= 1000000.00,
+            step= 0.01,
+            format='%.2f'
+            )
+        if price_input != "":
+            i+=1
+        print(price_input)
+        print(f'numero: {i}')
+        
+        url_input = st.text_input(
+            label = "Digite o link da imagem do novo produto"
+            )
+        if url_input != "":
+            i+=1
+        print(url_input)
+        print(f'numero: {i}')
+        
+        
+        
+        if st.form_submit_button("Cadastrar"):
+            if i == 4:
+                controller.inserir_item(Product(id_input,name_input,price_input,url_input))           
+                st.success("Produto cadastrado com sucesso")
+            # Problema : Nao to conseguindo adicionar dois itens de uma vez sem q eu tenha q mudar alguma coisa no codigo
+                        
+            else:
+                st.warning("Preencha todos os campos!")
+            #st.session_state.zoro = True
+        
                     
             
 else:
