@@ -1,5 +1,4 @@
-from ast import expr_context
-from shutil import ExecError
+import streamlit as st
 from dao.product_dao import ProductDAO
 from models.product import Product
 class ProductController():
@@ -12,6 +11,7 @@ class ProductController():
         item = ProductDAO.get_instance().pegar_item(id)
         return item
 
+    
     def inserir_item(self, item) -> bool:
         try:
             ProductDAO.get_instance().inserir_item(item)

@@ -5,6 +5,8 @@ from controllers.user_controller import UserController
 from controllers.product_controller import ProductController
 if "carrinho" not in st.session_state:
     st.session_state["carrinho"] = Carrinho()
+if "zoro" not in st.session_state:
+    st.session_state.zoro = False
     # carrinho = Carrinho()
 
     
@@ -33,8 +35,7 @@ def layout_produtos(product):
             st.session_state["quantidade"] = quantidade
             
 print(ProductController().getProducts())   
-if "zoro" not in st.session_state:
-    st.session_state.zoro = False
+
 try:
     if st.session_state.zoro:
         col1 , col2, col3, col4= st.columns(4)

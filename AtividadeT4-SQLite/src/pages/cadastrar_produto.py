@@ -1,4 +1,5 @@
 
+from re import sub
 import streamlit as st
 from controllers.product_controller import ProductController
 from models.product import Product
@@ -53,13 +54,12 @@ if st.session_state.zoro:
             if url_input != "":
                 i+=1
             
-            
-            
-            
+    
+                
             if st.form_submit_button("Cadastrar"):
                 if i == 4:
                     controller.inserir_item(Product(st.session_state["id_input"],st.session_state["name_input"],st.session_state["price_input"],st.session_state["url_input"]))
-                    st.experimental_rerun()
+                    # st.experimental_rerun()
                     print(st.session_state['id_input'])
                     st.write(f'id: {st.session_state["id_input"]}')
                     st.write(f'name: {st.session_state["name_input"]}')
@@ -72,7 +72,7 @@ if st.session_state.zoro:
                             
                 else:
                     st.warning("Preencha todos os campos!")
-                #st.session_state.zoro = True
+                st.session_state.zoro = True
         
                     
             
@@ -80,3 +80,4 @@ else:
     st.title("Bem vindo ao meu site!")
     st.text("__________________________________________________________")
     st.write("Por favor, faça o login para acessar a loja!")
+
