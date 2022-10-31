@@ -57,7 +57,11 @@ if st.session_state.zoro:
                 if i == 4:
                     #st.session_state.zoro = False
                     controller.inserir_item(Product(id_input,name_input,price_input,url_input))
+                    controller.atualizar_item(Product(id_input,name_input,price_input,url_input))
+                    
                     st.success("Produto cadastrado com sucesso")
+                    # st.experimental_rerun()
+                    # Problema : Nao to conseguindo adicionar dois itens de uma vez sem q eu tenha q mudar alguma coisa no codigo
                     
                 else:
                     st.warning("Preencha todos os campos!")

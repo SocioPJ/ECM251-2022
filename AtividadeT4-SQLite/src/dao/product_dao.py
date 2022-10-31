@@ -61,3 +61,31 @@ class ProductDAO:
             return False
         return True
     
+    def atualizar_item(self, item):
+        try:
+            self.cursor = self.conn.cursor()
+            self.cursor.execute(f"""
+                UPDATE Products SET
+                name = '{item.name}',
+                price = {item.price},
+                url = {item.url}
+                WHERE id = '{item.id}'
+            """)
+            self.conn.commit()
+            self.cursor.close()
+        except:
+            return False
+        return True
+    
+    def pegar_item(self, id):
+        self.cursor = self.conn.cursor()
+        self.cursor.execute(f"""
+            SELECT * FROM Products
+            WHERE id = '{id}';
+        """)
+        item = None
+        resultado = self.cursor.fetchone()
+        if resultado != None:
+            item = Product(id=resultado[0], name=resultado[1], price=resultado[2], url=resultado[3])
+        self.cursor.close()
+        return item

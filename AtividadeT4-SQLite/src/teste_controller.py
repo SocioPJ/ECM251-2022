@@ -21,9 +21,21 @@ controller = ProductController()
 # url_input = input('digite url:')
 
 # produto2 = Product(id_input,name_input,price_input,url_input)
-controller.deletar_item(4)
-controller.deletar_item(2)
-controller.deletar_item(10)
+# controller.deletar_item(0)
+# controller.deletar_item(1)
+# controller.deletar_item(2)
+# controller.deletar_item(3)
+# controller.deletar_item(4)
+# controller.deletar_item(5)
+# controller.deletar_item(6)
+# controller.deletar_item(7)
+# controller.deletar_item(8)
+# controller.deletar_item(9)
+print(controller.pegar_item(0))
+
+
+
+
 
 # print(controller.inserir_item(produto1))
 # print(controller.deletar_item(1))
