@@ -34,7 +34,7 @@ def layout_produtos(product):
             st.session_state["carrinho"].addProduct(product)
             st.session_state["quantidade"] = quantidade
             
-print(ProductController().getProducts())   
+# print(ProductController().getProducts())   
 
 try:
     if st.session_state.zoro:
@@ -72,9 +72,11 @@ try:
         #         )
         
         
-        produto1 = ProductController().getProducts()[0]
-        produto2 = ProductController().getProducts()[1]
-        produto3 = ProductController().getProducts()[2]
+        # produto1 = ProductController().getProducts()[0]
+        controller = ProductController()
+        produto1 = controller.pegar_item(0)
+        # produto2 = ProductController().getProducts()[1]
+        # produto3 = ProductController().getProducts()[2]
         colA, colB , colC = st.columns(3)
         with colA:
             
