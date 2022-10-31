@@ -32,7 +32,10 @@ controller.deletar_item(7)
 controller.deletar_item(8)
 controller.deletar_item(9)
 controller.deletar_item(10)
-# controller.inserir_item(Product(0,"bla",10.99,'abobora'))
+controller.inserir_item(Product(0,"bla",10.99,'abobora'))
+produto1 = controller.pegar_item(0)
+print(produto1.name)
+
 # controller.inserir_item(Product(0,"bla",10.99,'abobora'))
 # controller.inserir_item(Product(2,"bla",10.99,'abobora'))
 

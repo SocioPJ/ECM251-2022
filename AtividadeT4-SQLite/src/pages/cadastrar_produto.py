@@ -4,10 +4,8 @@ import streamlit as st
 from controllers.product_controller import ProductController
 from models.product import Product
 
-st.set_page_config(layout='centered')
+
     
-j = 0
-j+=j
 controller = ProductController()
 i = 0
 if st.session_state.zoro:
@@ -72,7 +70,7 @@ if st.session_state.zoro:
                             
                 else:
                     st.warning("Preencha todos os campos!")
-                st.session_state.zoro = True
+                
         
                     
             
