@@ -89,3 +89,15 @@ class ProductDAO:
             item = Product(id=resultado[0], name=resultado[1], price=resultado[2], url=resultado[3])
         self.cursor.close()
         return item
+    
+    def search_all_for_name(self,name):
+        self.cursor = self.conn.cursor()
+        self.cursor.execute(f"""
+            SELECT * FROM Products
+            WHERE name LIKE '{name}%';
+        """)
+        resultados = []
+        for resultado in self.cursor.fetchall():
+            resultados.append(Product(id=resultado[0], name=resultado[1], price=resultado[2],url = resultado[3]))
+        self.cursor.close()
+        return resultados

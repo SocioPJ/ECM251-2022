@@ -31,7 +31,8 @@ controller = ProductController()
 # controller.deletar_item(7)
 # controller.deletar_item(8)
 # controller.deletar_item(9)
-print(controller.pegar_item(0))
+# print(controller.pegar_item(0))
+print(controller.buscar_todos_itens_nome("bla"))
 
 
 
