@@ -16,7 +16,7 @@ class ProductController():
         try:
             ProductDAO.get_instance().inserir_item(item)
         except:
-            return False
+            return False 
         return True
     
     def pegar_todos_itens(self) -> list[Product]:

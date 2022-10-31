@@ -46,7 +46,7 @@ class ProductDAO:
             self.conn.commit()
             self.cursor.close()
         except:
-            print("ID Produto ja inserido antes, tente outro ID")
+            print("Erro inserir_item product_dao")
             
     def deletar_item(self, id):
         try:
@@ -94,7 +94,7 @@ class ProductDAO:
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
             SELECT * FROM Products
-            WHERE name LIKE '{name}%';
+            WHERE nome LIKE '{name}%';
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
