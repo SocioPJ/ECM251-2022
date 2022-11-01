@@ -25,10 +25,9 @@ def layout_carrinho(product_carrinho):
                 st.subheader("Preço")
                 st.write(item.price)
             with colE:
-                st.write('Frete: R$ 10,00')
                 st.metric(
-                    label = "Total",
-                    value = format(item.price*product_carrinho.verQuantidade() + 10, '.2f'),
+                    label = "Valor",
+                    value = format(item.price*product_carrinho.verQuantidade(), '.2f'),
                         )
         
     
@@ -40,6 +39,29 @@ try:
             )
         st.title("Carrinho")
         layout_carrinho(st.session_state["carrinho"])
+        colA ,colB, colC, colD, colE = st.columns(5)
+        with colA:
+            pass
+        with colB:
+            pass
+        with colC:
+            pass
+        with colD:
+            pass
+        with colE:
+            pass
+            # try:
+            #     for itens in st.session_state['carrinho']:
+            #         total = 0
+            #         total += itens.price
+            # except:
+            #     print("erro ao totalizar compra")
+            # st.write('Frete: R$ 10,00')
+            # st.metric(
+            #         label = "Valor",
+            #         value = format(total+10, '.2f'),
+            #             )
+        
         # st.write('Frete: R$ 10,00')
         # for product in st.session_state["carrinho"].getList():
         #     print(product.price*product.verQuantidade())
