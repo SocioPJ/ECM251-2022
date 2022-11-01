@@ -1,8 +1,29 @@
 import streamlit as st
 from controllers.product_controller import ProductController
 from models.product import Product
-
-
+controller = ProductController()
+def layout_visualizar_produtos():
+    try:
+        with st.container():
+            for itens in controller.pegar_todos_itens():
+                colA, colB , colC, colD = st.columns(4)
+                with colA:
+                    
+                    st.image(image = itens.url, width = 100)
+                    
+                with colB: 
+                    st.text(itens.name)
+                with colC:
+                    st.metric(label = "Preço", value = f'R$ {itens.price}')
+                with colD:
+                    if st.button("Remover", key = itens.name):
+                        controller.deletar_item(itens.id)
+                        # st.experimental_rerun
+                        
+                st.write('')
+                st.write('')
+    except:
+        print("Erro layout visualizar produtos")
     
 controller = ProductController()
 i = 0
@@ -62,7 +83,7 @@ if st.session_state.zoro:
             print('Erro cadastrar produtos')
     with tab2:
         with st.container():
-            pass
+            layout_visualizar_produtos()
             
                 
         
