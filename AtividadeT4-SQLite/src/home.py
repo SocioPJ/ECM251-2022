@@ -34,9 +34,11 @@ def layout_produtos():
                     st.metric(label = "Preço", value = f'R$ {itens.price}', delta = -0.5)
                     quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1, key = itens.id)
                     st.text('🚛 Chegará grátis amanhã!!')
-                    if st.button("Adicionar ao carrinho",key = itens.name ):
+                    if st.button("Adicionar ao carrinho", key = itens.name ):
                         st.session_state["carrinho"].addProduct(itens)
                         st.session_state["quantidade"] = quantidade
+                st.write("")
+                st.write('')
     except:
         print("Erro layout produtos")
                 
@@ -60,8 +62,7 @@ try:
         st.text("chegou aq")
         layout_produtos()
         
-except:
-    raise Exception("erro na pagina home")
+
         
         
         
@@ -240,10 +241,11 @@ except:
         #         )
         
 
-    # else:
-    #     st.title("Bem vindo ao meu site!")
-    #     st.text("__________________________________________________________")
-    #     st.text(" ")    
-    #     st.write("Por favor, faça o login para acessar a loja!")
+    else:
+        st.title("Bem vindo ao meu site!")
+        st.text("__________________________________________________________")
+        st.text(" ")    
+        st.write("Por favor, faça o login para acessar a loja!")
         
-
+except:
+    raise Exception("erro na pagina home")

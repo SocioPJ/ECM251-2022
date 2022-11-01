@@ -32,8 +32,8 @@ controller.deletar_item(7)
 controller.deletar_item(8)
 controller.deletar_item(9)
 controller.deletar_item(10)
-controller.inserir_item(Product(0,"bla",10.99,'https://http2.mlstatic.com/D_NQ_NP_2X_947943-MLB49335290710_032022-F.webp'))
-controller.inserir_item(Product(1,"bla",10.99,"https://http2.mlstatic.com/D_NQ_NP_2X_829677-MLB49337211586_032022-F.webp"))
+controller.inserir_item(Product(0,"Travesseiro Hentai 1",10.99,'https://http2.mlstatic.com/D_NQ_NP_2X_947943-MLB49335290710_032022-F.webp'))
+controller.inserir_item(Product(1,"Travesseiro Hentai 2",10.99,"https://http2.mlstatic.com/D_NQ_NP_2X_829677-MLB49337211586_032022-F.webp"))
 def teste(item):
     print(item.id)
 for itens in controller.pegar_todos_itens():

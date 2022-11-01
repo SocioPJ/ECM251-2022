@@ -1,4 +1,5 @@
 
+from tabnanny import check
 from models.product import Product
 import sqlite3
 import streamlit as st
@@ -18,7 +19,7 @@ class ProductDAO:
 
     def _connect(self):
         try:
-            self.conn = sqlite3.connect('./database/sqlite.db')
+            self.conn = sqlite3.connect('./database/sqlite.db', check_same_thread= False)
             print('Conectado')
         except:
             print("Erro ao conectar")
