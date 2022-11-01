@@ -11,8 +11,8 @@ with col2:
     )
     
             
-    nome_usuario = st.text_input(
-        label = "Nome de usuário",
+    email_usuario = st.text_input(
+        label = "Email",
          
     )
         
@@ -24,7 +24,7 @@ with col2:
     if st.button("Entrar"):
         user_controller = UserController()
         cond = False
-        if user_controller.checkLogin(nome_usuario, senha_usuario):
+        if user_controller.checkLogin(email_usuario, senha_usuario):
             st.success("Login realizado com sucesso!")
             cond = True
             st.session_state["zoro"] = cond

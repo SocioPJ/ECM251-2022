@@ -40,27 +40,14 @@ class UserController():
     def buscar_todos_itens_nome(self, name) -> list[User]:
         itens = UserDAO.get_instance().procurar_todos_por_nome(name)
         return itens
-        
-        
-        
-        
-        
-        
-        
-        
-
-    
-    
-    
     
     def checkUser(self,user):
         return user in self.users
 
-    def checkLogin(self, name, password):
-        user_teste = User(name=name, password=password, email=None)
-        for user in self.users:
-            if user.name == user_teste.name and user.password == user_teste.password:
-                
+    def checkLogin(self, email, password):
+        user_teste = User(id = None, name=None, password=password, email=email)
+        for user in UserDAO.get_instance().get_all():
+            if user.email == user_teste.email and user.password == user_teste.password:
                 return True            
         return False
     

@@ -12,7 +12,3 @@ class Product():
             return False
         return self.name == __o.name
     
-    @classmethod
-    def criar_novo_produto(self,id,name,price,url):
-        produto = Product(id,name,price,url)
-        return produto
