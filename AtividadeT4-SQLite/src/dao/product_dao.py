@@ -31,7 +31,7 @@ class ProductDAO:
             """)
             resultados = []
             for resultado in self.cursor.fetchall():
-                resultados.append(Product(id=resultado[0], nome=resultado[1], preco=resultado[2],url=resultado[3]))
+                resultados.append(Product(id=resultado[0], name=resultado[1], price=resultado[2],url=resultado[3]))
             self.cursor.close()
             return resultados
         except:

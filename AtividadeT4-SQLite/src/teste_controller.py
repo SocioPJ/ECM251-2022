@@ -32,11 +32,15 @@ controller.deletar_item(7)
 controller.deletar_item(8)
 controller.deletar_item(9)
 controller.deletar_item(10)
-controller.inserir_item(Product(0,"bla",10.99,'abobora'))
-produto1 = controller.pegar_item(0)
-print(produto1.name)
+controller.inserir_item(Product(0,"bla",10.99,'https://http2.mlstatic.com/D_NQ_NP_2X_947943-MLB49335290710_032022-F.webp'))
+controller.inserir_item(Product(1,"bla",10.99,"https://http2.mlstatic.com/D_NQ_NP_2X_829677-MLB49337211586_032022-F.webp"))
+def teste(item):
+    print(item.id)
+for itens in controller.pegar_todos_itens():
+    teste(itens)
+# print(controller.pegar_item(0))
 
-# controller.inserir_item(Product(0,"bla",10.99,'abobora'))
+
 # controller.inserir_item(Product(2,"bla",10.99,'abobora'))
 
 

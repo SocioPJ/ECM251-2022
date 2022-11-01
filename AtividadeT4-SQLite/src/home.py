@@ -20,22 +20,25 @@ if "quantidade3" not in st.session_state:
 
 
 def layout_produtos():
-    for itens in controller.pegar_todos_itens():
+    try:
         with st.container():
-            colA, colB , colC = st.columns(3)
-            with colA:
-                st.subheader(itens.name)
-                st.image(image = itens.url, width = 250)
-            
-            with colB: 
-                st.text('      Novo | 256823 Vendidos')
-            with colC:
-                st.metric(label = "Preço", value = f'R$ {itens.price}', delta = -0.5)
-                quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1, key = itens.name)
-                st.text('🚛 Chegará grátis amanhã!!')
-                if st.button("Adicionar ao carrinho"):
-                    st.session_state["carrinho"].addProduct(itens)
-                    st.session_state["quantidade"] = quantidade
+            for itens in controller.pegar_todos_itens():
+                colA, colB , colC = st.columns(3)
+                with colA:
+                    st.subheader(itens.name)
+                    st.image(image = itens.url, width = 250)
+                    
+                with colB: 
+                    st.text('      Novo | 256823 Vendidos')
+                with colC:
+                    st.metric(label = "Preço", value = f'R$ {itens.price}', delta = -0.5)
+                    quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1, key = itens.id)
+                    st.text('🚛 Chegará grátis amanhã!!')
+                    if st.button("Adicionar ao carrinho",key = itens.name ):
+                        st.session_state["carrinho"].addProduct(itens)
+                        st.session_state["quantidade"] = quantidade
+    except:
+        print("Erro layout produtos")
                 
 # print(ProductController().getProducts())   
 
@@ -53,7 +56,19 @@ try:
             st.title("Produtos")
             
         st.subheader("Produtos selecionados especialmente para você!")
-        st.text("__________________________________________________________________________________________")   
+        st.text("__________________________________________________________________________________________") 
+        st.text("chegou aq")
+        layout_produtos()
+        
+except:
+    raise Exception("erro na pagina home")
+        
+        
+        
+        
+        
+        
+          
             # Primeiro Produto:
         
         # for i in range(len(ProductController().getProducts())):
@@ -75,7 +90,7 @@ try:
         
         # produto1 = ProductController().getProducts()[0]
         
-        produto1 = controller.pegar_item(0)
+        #produto1 = controller.pegar_item(0)
         # produto2 = ProductController().getProducts()[1]
         # produto3 = ProductController().getProducts()[2]
         # colA, colB , colC = st.columns(3)
@@ -225,11 +240,10 @@ try:
         #         )
         
 
-    else:
-        st.title("Bem vindo ao meu site!")
-        st.text("__________________________________________________________")
-        st.text(" ")    
-        st.write("Por favor, faça o login para acessar a loja!")
+    # else:
+    #     st.title("Bem vindo ao meu site!")
+    #     st.text("__________________________________________________________")
+    #     st.text(" ")    
+    #     st.write("Por favor, faça o login para acessar a loja!")
         
-except:
-    print("Erro")
+

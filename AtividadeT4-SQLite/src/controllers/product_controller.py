@@ -20,9 +20,8 @@ class ProductController():
         return True
     
     def pegar_todos_itens(self) -> list[Product]:
-        try:
-            itens = ProductDAO.get_instance().get_all()
-            return itens
+        try: 
+            return ProductDAO.get_instance().get_all()
         except:
             print("Erro ao pegar todos itens")
             
