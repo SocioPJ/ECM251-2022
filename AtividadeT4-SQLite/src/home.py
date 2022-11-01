@@ -42,7 +42,7 @@ try:
             image = "assets/github_icon.png",
             width = 75,
             )
-            st.title("Produtos")
+            st.title("AnimeHub")
             
         st.subheader("Produtos selecionados especialmente para você!")
         st.text("__________________________________________________________________________________________") 

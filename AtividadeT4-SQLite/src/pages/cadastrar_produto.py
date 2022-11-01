@@ -9,12 +9,13 @@ def layout_visualizar_produtos():
                 colA, colB , colC, colD = st.columns(4)
                 with colA:
                     
-                    st.image(image = itens.url, width = 100)
+                    st.image(image = itens.url, width = 115)
                     
                 with colB: 
-                    st.text(itens.name)
+                    st.caption(itens.name)
+                    st.caption(f'Id: {itens.id}')
                 with colC:
-                    st.metric(label = "Preço", value = f'R$ {itens.price}')
+                    st.caption(f'Preço: {itens.price}')
                 with colD:
                     if st.button("Remover", key = itens.name):
                         controller.deletar_item(itens.id)
@@ -83,7 +84,9 @@ if st.session_state.zoro:
             print('Erro cadastrar produtos')
     with tab2:
         with st.container():
+            
             layout_visualizar_produtos()
+            
             
                 
         
