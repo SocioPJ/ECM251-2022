@@ -38,7 +38,7 @@ class ProductController():
             raise Exception("Erro ao atualizar item")
     
     def buscar_todos_itens_nome(self, name) -> list[Product]:
-        itens = ProductDAO.get_instance().search_all_for_name(name)
+        itens = ProductDAO.get_instance().procurar_todos_por_nome(name)
         return itens
     
     

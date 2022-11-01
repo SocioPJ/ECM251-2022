@@ -1,5 +1,3 @@
-
-from tabnanny import check
 from models.product import Product
 import sqlite3
 import streamlit as st
@@ -92,7 +90,7 @@ class ProductDAO:
         self.cursor.close()
         return item
     
-    def search_all_for_name(self,name):
+    def procurar_todos_por_nome(self,name):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
             SELECT * FROM Products
