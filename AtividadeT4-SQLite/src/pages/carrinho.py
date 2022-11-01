@@ -34,6 +34,10 @@ def layout_carrinho(product_carrinho):
     
 try:
     if st.session_state.zoro:
+        st.image(
+            image = "assets/github_icon.png",
+            width = 75,
+            )
         st.title("Carrinho")
         layout_carrinho(st.session_state["carrinho"])
         # st.write('Frete: R$ 10,00')
