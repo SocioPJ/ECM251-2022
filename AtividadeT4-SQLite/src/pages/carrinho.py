@@ -9,8 +9,6 @@ import time
 def layout_carrinho(product_carrinho):
     try:
         st.write('__________________________________________________________')
-        # print(len(product_carrinho.getList()))
-       
         for item in product_carrinho.getList():
             with st.container():
                 colA, colB, colC, colD, colE = st.columns(5,gap = 'small')
@@ -95,7 +93,7 @@ try:
                 if percent_complete == 99:
                     st.balloons()
                     st.success("Compra finalizada com sucesso!")
-                    st.session_state["carrinho"].removeProduct()
+                    st.session_state["carrinho"].remover_todos_produtos()
             
             
 

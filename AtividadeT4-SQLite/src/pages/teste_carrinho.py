@@ -10,7 +10,7 @@ import streamlit as st
 lista_produtos = st.session_state['carrinho'].getList()
 # st.write(lista_produtos[1].id)
 for produtos in lista_produtos:
-    st.write(produtos.id)
+    st.write(produtos)
 
 # for itens in st.session_state['carrinho']:
 #     st.write(itens)
