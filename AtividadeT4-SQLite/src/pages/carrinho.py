@@ -7,28 +7,35 @@ import time
 
 
 def layout_carrinho(product_carrinho):
-    st.write('__________________________________________________________')
-    print(len(product_carrinho.getList()))
-    for item in product_carrinho.getList():
-        with st.container():
-            colA, colB, colC, colD, colE = st.columns(5,gap = 'small')
-            with colA:
-                st.image(image = item.url, width = 100)
-            with colB:
-                st.subheader("Adicionado")
-                st.write(item.name)
-                
-            with colC:
-                st.subheader("Qtd.")
-                st.write(product_carrinho.verQuantidade())
-            with colD:
-                st.subheader("Preço")
-                st.write(item.price)
-            with colE:
-                st.metric(
-                    label = "Valor",
-                    value = format(item.price*product_carrinho.verQuantidade(), '.2f'),
-                        )
+    try:
+        st.write('__________________________________________________________')
+        # print(len(product_carrinho.getList()))
+       
+        for item in product_carrinho.getList():
+            with st.container():
+                colA, colB, colC, colD, colE = st.columns(5,gap = 'small')
+                with colA:
+                    st.image(image = item.url, width = 100)
+                    pass
+                with colB:
+                    st.subheader("Adicionado")
+                    st.write(item.name)
+                    
+                with colC:
+                    st.subheader("Qtd.")
+                    st.write(product_carrinho.verQuantidade())
+                with colD:
+                    pass
+                    st.subheader("Preço")
+                    st.write(item.price)
+                with colE:
+                    pass
+                    st.metric(
+                        label = "Valor",
+                        value = format(item.price*product_carrinho.verQuantidade(), '.2f'),
+                            )
+    except:
+        print("Erro layout carrinho")
         
     
 try:

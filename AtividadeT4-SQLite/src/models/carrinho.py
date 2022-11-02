@@ -25,3 +25,7 @@ class Carrinho():
             self.products.remove(product)
         else:
             print('Não existe o produto no carrinho')
+    
+    def remover_todos_produtos(self):
+        for product in st.session_state['carrinho'].getList():
+            self.products.remove(product)
