@@ -7,10 +7,14 @@ import streamlit as st
 # st.session_state['carrinho'].removeProduct(produto2)
 # st.session_state["carrinho"].addProduct(produto1)
 # st.session_state["carrinho"].addProduct(produto2)
-lista_produtos = st.session_state['carrinho'].getList()
+# lista_produtos = st.session_state['carrinho'].getList()
 # st.write(lista_produtos[1].id)
-for produtos in lista_produtos:
-    st.write(produtos)
+# for produtos in lista_produtos:
+#     st.write(produtos)
 
 # for itens in st.session_state['carrinho']:
 #     st.write(itens)
+
+# if st.button('Editar'):
+#     with st.expander('teste'):
+#         st.write('teste')

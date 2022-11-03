@@ -22,8 +22,9 @@ def layout_visualizar_usuarios():
                 with colC:
                     if st.button("Remover", key = users.email):
                         controller_usuario.deletar_usuario(users.email)
+                     
                         
-                
+
                 st.caption('-----------------------------------------------')
     except:
         print("Erro layout visualizar usuarios")
@@ -32,7 +33,7 @@ st.image(
             image = "assets/github_icon.png",
             width = 75,
             )
-st.title("Cadastrar Usuários")
+st.title("Usuários")
 tab1, tab2 = st.tabs(["Cadastrar", "Visualizar"])
 with tab1:
     try:
@@ -67,7 +68,7 @@ with tab1:
                                 st.write(f'password: {st.session_state["password_input"]}')       
                                 st.success("Usuario cadastrado com sucesso!")
                             else:
-                                st.error('Email ja cadastrado.Tente novamente')          
+                                st.error('Email ja cadastrado. Tente novamente')          
                         else:
                             st.warning("Preencha todos os campos!")
     except:
