@@ -25,9 +25,9 @@ class UserController():
         except:
             print("Erro ao pegar todos itens")
             
-    def deletar_usuario(self, id) -> bool:
+    def deletar_usuario(self, email) -> bool:
         try:
-            return UserDAO.get_instance().deletar_usuario(id)
+            return UserDAO.get_instance().deletar_usuario(email)
         except:
             print(" Erro ao deletar usuario ")
     

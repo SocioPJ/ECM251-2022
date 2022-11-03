@@ -15,13 +15,6 @@ with tab1:
     try:
         with st.container():
             with st.form("entry_form", clear_on_submit=True):
-                    # id_input = st.number_input(
-                    #     label = "Digite o id do novo usuario",
-                    #     min_value = 0,
-                    #     key = 'id_input'  
-                    # )
-                    # if id_input != "":
-                    #     contagem_blocos_respondidos+=1
                     name_input = st.text_input(
                         label= "Digite o nome do novo usuario",
                         key = 'name_input'
@@ -42,6 +35,7 @@ with tab1:
                         contagem_blocos_respondidos+=1
                     if st.form_submit_button("Cadastrar"):
                         if contagem_blocos_respondidos == 3:
+                            
                             controller_usuario.inserir_usuario(User(st.session_state["name_input"],st.session_state["email_input"],st.session_state["password_input"]))
                             st.write(f'name: {st.session_state["name_input"]}')
                             st.write(f'email: {st.session_state["email_input"]}')

@@ -48,12 +48,12 @@ class UserDAO:
         except:
             print("Erro inserir_usuario user_dao")
             
-    def deletar_usuario(self, id):
+    def deletar_usuario(self, email):
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
                 DELETE FROM User 
-                WHERE id = '{id}'
+                WHERE email = '{email}'
             """)
             self.conn.commit()
             self.cursor.close()
@@ -70,7 +70,7 @@ class UserDAO:
                 name = '{user.name}',
                 price = {user.price},
                 url = {user.url}
-                WHERE id = '{user.id}'
+                WHERE email = '{user.email}'
             """)
             self.conn.commit()
             self.cursor.close()
