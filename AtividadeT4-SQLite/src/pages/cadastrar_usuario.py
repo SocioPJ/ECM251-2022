@@ -4,7 +4,7 @@ from models.user import User
 contagem_blocos_respondidos=0
 controller_usuario = UserController()
 
-
+emails = []
 st.image(
             image = "assets/github_icon.png",
             width = 75,
@@ -35,12 +35,16 @@ with tab1:
                         contagem_blocos_respondidos+=1
                     if st.form_submit_button("Cadastrar"):
                         if contagem_blocos_respondidos == 3:
-                            
-                            controller_usuario.inserir_usuario(User(st.session_state["name_input"],st.session_state["email_input"],st.session_state["password_input"]))
-                            st.write(f'name: {st.session_state["name_input"]}')
-                            st.write(f'email: {st.session_state["email_input"]}')
-                            st.write(f'password: {st.session_state["password_input"]}')       
-                            st.success("Produto cadastrado com sucesso")           
+                            for i in range(len(controller_usuario.pegar_todos_usuarios())):
+                                emails.append(controller_usuario.pegar_todos_usuarios()[i].email)
+                            if email_input not in emails:
+                                controller_usuario.inserir_usuario(User(st.session_state["name_input"],st.session_state["email_input"],st.session_state["password_input"]))
+                                st.write(f'name: {st.session_state["name_input"]}')
+                                st.write(f'email: {st.session_state["email_input"]}')
+                                st.write(f'password: {st.session_state["password_input"]}')       
+                                st.success("Usuario cadastrado com sucesso!")
+                            else:
+                                st.error('Email ja cadastrado.Tente novamente')          
                         else:
                             st.warning("Preencha todos os campos!")
     except:
