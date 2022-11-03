@@ -3,7 +3,30 @@ from controllers.user_controller import UserController
 from models.user import User
 contagem_blocos_respondidos=0
 controller_usuario = UserController()
-
+def layout_visualizar_usuarios():
+    try:
+        with st.container():
+            for users in controller_usuario.pegar_todos_usuarios():
+                colA, colB , colC = st.columns(3)
+                with colA:
+                    st.write('')
+                    st.image (
+                        image = "assets/user_icon.png",
+                        width = 75
+                        )
+                    
+                with colB: 
+                    st.caption(f'Nome : {users.name}')
+                    st.caption(f'Email : {users.email}')
+                    st.caption(f'Senha: {users.password}')
+                with colC:
+                    if st.button("Remover", key = users.email):
+                        controller_usuario.deletar_usuario(users.email)
+                        
+                
+                st.caption('-----------------------------------------------')
+    except:
+        print("Erro layout visualizar usuarios")
 emails = []
 st.image(
             image = "assets/github_icon.png",
@@ -49,3 +72,9 @@ with tab1:
                             st.warning("Preencha todos os campos!")
     except:
         print('Erro cadastrar usuarios')
+
+with tab2:
+    layout_visualizar_usuarios()
+            
+        
+    

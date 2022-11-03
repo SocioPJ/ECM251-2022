@@ -55,24 +55,6 @@ try:
             pass
         with colE:
             pass
-            # try:
-            #     for itens in st.session_state['carrinho']:
-            #         total = 0
-            #         total += itens.price
-            # except:
-            #     print("erro ao totalizar compra")
-            # st.write('Frete: R$ 10,00')
-            # st.metric(
-            #         label = "Valor",
-            #         value = format(total+10, '.2f'),
-            #             )
-        
-        # st.write('Frete: R$ 10,00')
-        # for product in st.session_state["carrinho"].getList():
-        #     print(product.price*product.verQuantidade())
-                   
-        # st.write(st.session_state["carrinho"].getList()[0])
-        # st.write(st.session_state["carrinho"].getList()[0][1])
         st.write('')
         st.write('')
         st.write('')
@@ -99,9 +81,24 @@ try:
 
 
        
+# =================================================================================#       
+                    
+# ANTES DE LOGAR:           
     else:
-        st.title("Bem vindo ao meu site!")
-        st.text("__________________________________________________________")
-        st.write("Por favor, faça o login para acessar a loja!")
+        colA, colB, colC = st.columns(3)
+        with colA:
+            pass
+            
+        with colB:
+            st.image(
+                image = "assets/github_icon.png",
+                width = 100,
+            )
+        with colC:
+            pass
+        st.write('')
+        st.write('')
+        st.write('')
+        st.info('Faça login para acessar essa página')
 except:
     pass

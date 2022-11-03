@@ -48,11 +48,25 @@ try:
         st.text("__________________________________________________________________________________________") 
         
         layout_produtos()
+    # =================================================================================#       
+                    
+# ANTES DE LOGAR:           
     else:
-        st.title("Bem vindo ao meu site!")
-        st.text("__________________________________________________________")
-        st.text(" ")    
-        st.write("Por favor, faça o login para acessar a loja!")
+        colA, colB, colC = st.columns(3)
+        with colA:
+            pass
+            
+        with colB:
+            st.image(
+                image = "assets/github_icon.png",
+                width = 100,
+            )
+        with colC:
+            pass
+        st.write('')
+        st.write('')
+        st.write('')
+        st.info('Faça login para acessar essa página')
         
 except:
     raise Exception("erro na pagina home")
