@@ -40,13 +40,13 @@ class UserDAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute("""
-                INSERT INTO User (id, name, email, password)
-                VALUES(?,?,?,?);
-            """, (user.id,user.name,user.email,user.password))
+                INSERT INTO User (name, email, password)
+                VALUES(?,?,?);
+            """, (user.name,user.email,user.password))
             self.conn.commit()
             self.cursor.close()
         except:
-            print("Erro inserir_usuario product_dao")
+            print("Erro inserir_usuario user_dao")
             
     def deletar_usuario(self, id):
         try:

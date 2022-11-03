@@ -25,17 +25,17 @@ class UserController():
         except:
             print("Erro ao pegar todos itens")
             
-    def deletar_item(self, id) -> bool:
+    def deletar_usuario(self, id) -> bool:
         try:
             return UserDAO.get_instance().deletar_usuario(id)
         except:
-            raise Exception(" Erro ao deletar item ")
+            print(" Erro ao deletar usuario ")
     
     def atualizar_item(self,usuario):
         try:
             return UserDAO.get_instance().atualizar_usuario(usuario)
         except:
-            raise Exception("Erro ao atualizar item")
+            print("Erro ao atualizar item")
     
     def buscar_todos_itens_nome(self, name) -> list[User]:
         itens = UserDAO.get_instance().procurar_todos_por_nome(name)
