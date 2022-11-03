@@ -30,7 +30,7 @@ class UserDAO:
             """)
             resultados = []
             for resultado in self.cursor.fetchall():
-                resultados.append(User(id=resultado[0], name=resultado[1], email=resultado[2],password=resultado[3]))
+                resultados.append(User(name=resultado[1], email=resultado[2],password=resultado[3]))
             self.cursor.close()
             return resultados
         except:

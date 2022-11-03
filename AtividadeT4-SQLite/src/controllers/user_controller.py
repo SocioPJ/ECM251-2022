@@ -45,7 +45,7 @@ class UserController():
         return user in self.users
 
     def checkLogin(self, email, password):
-        user_teste = User(id = None, name=None, password=password, email=email)
+        user_teste = User(name=None, password=password, email=email)
         for user in UserDAO.get_instance().get_all():
             if user.email == user_teste.email and user.password == user_teste.password:
                 return True            
