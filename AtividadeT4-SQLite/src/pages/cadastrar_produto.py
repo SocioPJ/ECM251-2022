@@ -19,7 +19,6 @@ def layout_visualizar_produtos():
                 with colD:
                     if st.button("Remover", key = itens.name):
                         controller.deletar_item(itens.id)
-                        # st.experimental_rerun
                         
                 st.write('')
                 st.write('')
