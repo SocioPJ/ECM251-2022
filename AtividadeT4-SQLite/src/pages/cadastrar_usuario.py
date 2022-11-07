@@ -78,17 +78,17 @@ with tab2:
     layout_visualizar_usuarios()
 
 with tab3:
-    nome_usuarios=[]
+    email_usuarios=[]
     for i in range(len(controller_usuario.pegar_todos_usuarios())):
-        nome_usuarios.append(controller_usuario.pegar_todos_usuarios()[i].name)
+        email_usuarios.append(controller_usuario.pegar_todos_usuarios()[i].email)
     # st.write(nome_usuarios)
     try:
         with st.container():
             option =  st.selectbox(
-                "Usuarios",
-                (nome_usuarios)
-
+                "Email dos usuários: ",
+                (email_usuarios)
             )
+            st.write(option)
     except:
         print('erro selecionar usuario em Editar')            
         

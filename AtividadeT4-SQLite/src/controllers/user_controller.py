@@ -23,7 +23,7 @@ class UserController():
         try: 
             return UserDAO.get_instance().get_all()
         except:
-            print("Erro ao pegar todos itens")
+            print("Erro ao pegar todos usuarios")
             
     def deletar_usuario(self, email) -> bool:
         try:
@@ -35,14 +35,11 @@ class UserController():
         try:
             return UserDAO.get_instance().atualizar_usuario(usuario)
         except:
-            print("Erro ao atualizar item")
+            print("Erro ao atualizar usuario")
     
-    def buscar_todos_itens_nome(self, name) -> list[User]:
-        itens = UserDAO.get_instance().procurar_todos_por_nome(name)
-        return itens
-    
-    def checkUser(self,user):
-        return user in self.users
+    def buscar_todos_usuarios_email(self, email) -> list[User]:
+        usuario = UserDAO.get_instance().procurar_todos_por_email(email)
+        return usuario
 
     def checkLogin(self, email, password):
         user_teste = User(name=None, password=password, email=email)

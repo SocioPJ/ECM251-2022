@@ -91,14 +91,14 @@ class UserDAO:
         self.cursor.close()
         return item
     
-    def procurar_todos_por_nome(self,name):
+    def procurar_todos_por_email(self,email):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
             SELECT * FROM User
-            WHERE nome LIKE '{name}%';
+            WHERE email LIKE '{email}%';
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
-            resultados.append(User(id=resultado[0], name=resultado[1], email=resultado[2], password=resultado[3]))
+            resultados.append(User(name=resultado[1], email=resultado[2], password=resultado[3]))
         self.cursor.close()
         return resultados
