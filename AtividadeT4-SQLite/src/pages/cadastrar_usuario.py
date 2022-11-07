@@ -88,7 +88,11 @@ with tab3:
                 "Email dos usuários: ",
                 (email_usuarios)
             )
-            st.write(option)
+            usuario = controller_usuario.buscar_todos_usuarios_email(option)
+            st.write(usuario[0])
+            st.write(f'Nome usuario: {usuario[0].name}')
+            st.write(f'Email do usuário: {usuario[0].email}')
+            st.write(f'Senha do usuário: {usuario[0].password}')
     except:
         print('erro selecionar usuario em Editar')            
         

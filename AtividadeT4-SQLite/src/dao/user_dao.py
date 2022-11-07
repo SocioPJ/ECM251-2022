@@ -65,17 +65,17 @@ class UserDAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                UPDATE User SET
-                id = {user.id}
-                name = '{user.name}',
-                price = {user.price},
-                url = {user.url}
-                WHERE email = '{user.email}'
+                UPDATE User 
+                SET name = '{user.name}',
+                    email = '{user.email}',
+                    password = {user.password},
+                WHERE 
+                    email = '{user.email}';
             """)
             self.conn.commit()
             self.cursor.close()
         except:
-            return False
+            print('Erro DAO atualizar usuario')
         return True
     
     def pegar_usuario(self, id):

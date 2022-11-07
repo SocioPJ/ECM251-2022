@@ -3,8 +3,26 @@ from models.user import User
 
 controller = UserController()
 
-usuarios = controller.buscar_todos_usuarios_email("jpsocio@hotmail.com")
-print(usuarios[0])
+usuario = controller.buscar_todos_usuarios_email("jpsocio@hotmail.com")
+print(usuario[0])
+
+# new_name_input = input('Digite novo nome: ')
+# new_password_input = input('Digite nova senha: ')
+
+# usuario[0].name = 'gato'
+usuario[0].password = 'jose'
+
+print(usuario)
+print(usuario[0])
+print(usuario[0].name)
+print(usuario[0].password)
+print(usuario[0].email)
+usuario = usuario[0]
+print(usuario.password)
+controller.atualizar_usuario(usuario)
+# print(controller.atualizar_usuario(usuario[0]))
+# usuario = controller.buscar_todos_usuarios_email("jpsocio@hotmail.com")
+# print(usuario[0])
 
 
 

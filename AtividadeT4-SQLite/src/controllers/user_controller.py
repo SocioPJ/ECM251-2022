@@ -31,7 +31,7 @@ class UserController():
         except:
             print(" Erro ao deletar usuario ")
     
-    def atualizar_item(self,usuario):
+    def atualizar_usuario(self,usuario):
         try:
             return UserDAO.get_instance().atualizar_usuario(usuario)
         except:
