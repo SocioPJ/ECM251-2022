@@ -89,10 +89,44 @@ with tab3:
                 (email_usuarios)
             )
             usuario = controller_usuario.buscar_todos_usuarios_email(option)
-            st.write(usuario[0])
-            st.write(f'Nome usuario: {usuario[0].name}')
-            st.write(f'Email do usuário: {usuario[0].email}')
-            st.write(f'Senha do usuário: {usuario[0].password}')
+            usuario = usuario[0]
+            st.write(usuario)
+            # st.info(f'Nome usuario: {usuario[0].name}')
+            # st.info(f'Email do usuário: {usuario[0].email}')
+            # st.info(f'Senha do usuário: {usuario[0].password}')
+            with st.form('entry changes',True):
+                colA, colB = st.columns(2)
+                with colA:
+                    new_name_input=st.text_input(
+                        label = 'Digite um novo nome'
+                    )
+                with colB:
+                    new_password_input = st.text_input(
+                        label = 'Digite uma nova senha'
+                    )
+                if st.form_submit_button('Atualizar'):
+                    try:
+                        if new_name_input != "": # Verifica se text input esta vazio
+                            if new_name_input != usuario.name: # verifica se o novo nome é igual ao anterior
+                                usuario.name = new_name_input
+                                st.success('Nome alterado com sucesso')
+                            else:
+                                st.error('Nome usuario igual')
+                        else:
+                            new_name_input = usuario.name # Se a caixa de entrada estiver vazia, o novo nome sera igual ao anterior, se não houvesse essa condição, o nome seria vazio no banco de dados.
+                        if new_password_input != "": # Mesma coisa com a senha
+                            if new_password_input != usuario.password or new_password_input != "":
+                                usuario.password = new_password_input
+                                st.success('Senha alterada com sucesso')
+                            else:
+                                print("Senha igual a anterior")
+                        else:
+                            new_password_input = usuario.password
+                        controller_usuario.atualizar_usuario(usuario)
+                    except:
+                        print("Erro atualizar usuário")
+                    
+                
     except:
         print('erro selecionar usuario em Editar')            
         

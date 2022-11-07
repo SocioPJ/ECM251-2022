@@ -66,12 +66,12 @@ class UserDAO:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
                 UPDATE User 
-                SET name = '{user.name}',
-                    email = '{user.email}',
-                    password = {user.password},
+                SET name = ?,
+                    email = ?,
+                    password = ?
                 WHERE 
-                    email = '{user.email}';
-            """)
+                    email = ?;
+            """,(user.name,user.email,user.password,user.email))
             self.conn.commit()
             self.cursor.close()
         except:
