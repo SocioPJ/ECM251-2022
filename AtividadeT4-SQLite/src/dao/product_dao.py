@@ -61,21 +61,6 @@ class ProductDAO:
             return False
         return True
     
-    def atualizar_item(self, item):
-        try:
-            self.cursor = self.conn.cursor()
-            self.cursor.execute(f"""
-                UPDATE Products SET
-                name = '{item.name}',
-                price = {item.price},
-                url = {item.url}
-                WHERE id = '{item.id}'
-            """)
-            self.conn.commit()
-            self.cursor.close()
-        except:
-            return False
-        return True
     
     def pegar_item(self, id):
         self.cursor = self.conn.cursor()

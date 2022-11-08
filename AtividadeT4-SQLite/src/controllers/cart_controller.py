@@ -4,10 +4,7 @@ from dao.cart_dao import CartDAO
 class CartController():
     def __init__(self):
         pass
-    def pegar_item(self, id):
-        item = CartDAO.get_instance().pegar_item_carrinho(id)
-        return item
-
+    
     
     def inserir_item(self, item) -> bool:
         try:
@@ -46,16 +43,4 @@ class CartController():
         except:
             print('erro ao atualizar quantidade produto')
     
-    # def atualizar_item(self,item):
-    #     try:
-    #         return CartDAO.get_instance().atualizar_item_c(item)
-    #     except:
-    #         raise Exception("Erro ao atualizar item")
-    
-    # def buscar_todos_itens_nome(self, name) -> list[Product]:
-    #     itens = CartDAO.get_instance().procurar_todos_por_nome(name)
-    #     return itens
-       
-
-
-  
+   

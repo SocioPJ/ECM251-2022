@@ -34,7 +34,7 @@ def layout_carrinho():
                         value = format(item.product_price*item.quantity, '.2f'),
                             )
                     if st.button('Remover', key = item.product_id):
-                        controller_cart.deletar_item_carrinho(item.product_id)
+                        controller_cart.deletar_item_carrinho(item.product_id) # Ao clicar, remove produto do carrinho
                         
                     
             st.write('__________________________________________________________')

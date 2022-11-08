@@ -24,7 +24,7 @@ with col2:
     if st.button("Entrar"):
         user_controller = UserController()
         cond = False # Condição inicial
-        if user_controller.checkLogin(email_usuario, senha_usuario): # verifica se o email e a senha dados constam no banco de dados
+        if user_controller.check_login(email_usuario, senha_usuario): # verifica se o email e a senha dados constam no banco de dados
             st.success("Login realizado com sucesso!") # Caso verdadeiro, ou seja, consta no banco de dados, troca o valor da condição para True
             cond = True
             st.session_state["zoro"] = cond
