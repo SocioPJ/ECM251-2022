@@ -7,7 +7,6 @@ import time
 
 controller_cart = CartController()
 def layout_carrinho():
-    total = 0
     try:
         st.write('__________________________________________________________')
         for item in controller_cart.pegar_todos_itens():
@@ -18,8 +17,8 @@ def layout_carrinho():
                     st.image(image = item.product_url, width = 100)
                     pass
                 with colB:
-                    st.subheader("Adicionado")
-                    st.write(item.product_name)
+                    st.subheader("Produto")
+                    st.text(item.product_name)
                     
                 with colC:
                     st.subheader("Qtd.")
@@ -29,13 +28,16 @@ def layout_carrinho():
                     st.subheader("Preço")
                     st.write(item.product_price)
                 with colE:
-                    pass
                     st.metric(
                         
                         label = "Valor",
                         value = format(item.product_price*item.quantity, '.2f'),
                             )
-                    total += item.product_price*item.quantity
+                    if st.button('Remover', key = item.product_id):
+                        controller_cart.deletar_item_carrinho(item.product_id)
+                        
+                    
+            st.write('__________________________________________________________')
     except:
         print("Erro layout carrinho")
         
@@ -48,6 +50,7 @@ try:
             )
         st.title("Carrinho")
         layout_carrinho()
+        
         colA ,colB, colC, colD, colE = st.columns(5)
         with colA:
             pass
@@ -60,15 +63,11 @@ try:
         with colE:
             total = 0
             for itens in controller_cart.pegar_todos_itens():
-                total += controller_cart.pegar_quantidade_item_carrinho(itens.product_id)*controller_cart.pegar_preco_item_carrinho(itens.product_id)
+                total += controller_cart.pegar_quantidade_item_carrinho(itens.product_id)*controller_cart.pegar_preco_item_carrinho(itens.product_id) # Contabilizando total do carrinho pegando o valor e a quantidade do produto em cada item no carrinho
             total = format(total, '.2f')
             st.write('')
             st.write('')
-            st.write('')
-            st.write('')
-            st.write('')
-            st.write('')
-            st.text("Total")
+            st.subheader("Total")
             st.text(f'R${total}')
             
         st.write('')
@@ -89,7 +88,7 @@ try:
                     st.balloons()
                     st.success("Compra finalizada com sucesso!")
                     for itens in controller_cart.pegar_todos_itens():
-                        controller_cart.deletar_item_carrinho(itens.product_id)
+                        controller_cart.deletar_item_carrinho(itens.product_id) # Quando a compra é finalizada, todos produtos dentro do carrinho sao removidos
             
             
 
