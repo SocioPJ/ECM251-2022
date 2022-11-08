@@ -12,16 +12,13 @@
 # ========================================================================================================== #
 #
 #   IMPORTANTE : 
-#        TODA VEZ QUE APERTA UM BOTAO DE REMOVER OU EDITAR DENTRO DO STREAMLIT, APERTAR R PARA RECARREGAR E ATUALIZAR A PÁGINA.
+#        1) TODA VEZ QUE APERTA UM BOTAO DE REMOVER OU EDITAR DENTRO DO STREAMLIT, APERTAR R PARA RECARREGAR E ATUALIZAR A PÁGINA.
+#        2) PARA INICIAR O STREAMLIT, DIGITE O SEGUINTE COMANDO NO TERMINAL(SEM ASPAS): "streamlit run ./src/home.py"
+#        
 #
 # ========================================================================================================== #
 #
 #   Para implementar o banco de dados para o carrinho, criei uma branch nova ( AtividadeT4 - CarrinhoSQL) e fiz toda essa parte lá.Alguns commits estão naquela branch. Ja foi feito o merge entre as branch AtividadeT4 e AtividadeT4-CarrinhoSQL para que a entrega final esteja nessa branch atual.    
 #
 # ========================================================================================================== #
-#
-#
-#
-#
-#
-#
+
