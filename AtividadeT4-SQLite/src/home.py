@@ -1,11 +1,11 @@
 
-from models.cart import Carrinho
+from models.cart import Cart
 import streamlit as st
 from controllers.user_controller import UserController
 from controllers.product_controller import ProductController
+from controllers.cart_controller import CartController
 controller = ProductController()
-if "carrinho" not in st.session_state:
-    st.session_state["carrinho"] = Carrinho()
+controller_carrinho = CartController()
 if "zoro" not in st.session_state:
     st.session_state.zoro = False
 def layout_produtos():
@@ -23,8 +23,7 @@ def layout_produtos():
                     st.metric(label = "Preço", value = f'R$ {itens.price}')
                     quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1, key = itens.id)
                     if st.button("Adicionar ao carrinho", key = itens.name ):
-                        st.session_state["carrinho"].addProduct(itens)
-                        st.session_state["quantidade"] = quantidade
+                        controller_carrinho.inserir_item(Cart(itens.id,itens.name,itens.price,itens.url,quantidade))
                 st.write("")
                 st.write('')
     except:

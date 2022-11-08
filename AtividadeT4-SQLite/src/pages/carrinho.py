@@ -1,8 +1,8 @@
 import streamlit as st
 from controllers.user_controller import UserController
-from models.cart import Carrinho
+from models.cart import Cart
 from controllers.product_controller import ProductController
-from controllers.cart_controller import CarrinhoController
+from controllers.cart_controller import CartController
 import time
 
 
