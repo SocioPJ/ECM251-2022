@@ -1,4 +1,4 @@
-from models.carrinho import Carrinho
+from models.cart import Carrinho
 from controllers.product_controller import ProductController
 
 class CarrinhoController():

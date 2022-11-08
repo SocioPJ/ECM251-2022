@@ -1,5 +1,5 @@
 
-from models.carrinho import Carrinho
+from models.cart import Carrinho
 import streamlit as st
 from controllers.user_controller import UserController
 from controllers.product_controller import ProductController
