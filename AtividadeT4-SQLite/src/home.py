@@ -23,7 +23,14 @@ def layout_produtos():
                     st.metric(label = "Preço", value = f'R$ {itens.price}')
                     quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1, key = itens.id)
                     if st.button("Adicionar ao carrinho", key = itens.name ):
-                        controller_carrinho.inserir_item(Cart(itens.id,itens.name,itens.price,itens.url,quantidade))
+                        products_id_in_cart = []
+                        for product in controller_carrinho.pegar_todos_itens():
+                            products_id_in_cart.append(product.product_id)
+                        if itens.id not in products_id_in_cart:
+                            controller_carrinho.inserir_item(Cart(itens.id,itens.name,itens.price,itens.url,quantidade))
+                            st.success('Produto adicionado ao carrinho!')
+                        else:
+                            quantidade_anterior = 
                 st.write("")
                 st.write('')
     except:

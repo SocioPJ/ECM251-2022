@@ -28,6 +28,12 @@ class CartController():
         except:
             raise Exception(" Erro ao deletar item ")
     
+    def pegar_quantidade_item_carrinho(self,id):
+        try:
+            return CartDAO.get_instance().pegar_quantidade_item_carrinho(id)
+        except:
+            print('Erro pegar quantidade de um item no carrinho')
+    
     # def atualizar_item(self,item):
     #     try:
     #         return CartDAO.get_instance().atualizar_item_c(item)

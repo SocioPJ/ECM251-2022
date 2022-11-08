@@ -14,5 +14,4 @@ controller_produto = ProductController()
 # item = Cart(produto.id,produto.name,produto.price,produto.url,quantidade) 
 # carrinho = controller_carrinho.inserir_item(item)
 
-controller_carrinho.deletar_item(0)
-controller_carrinho.deletar_item(1)
+print(controller_carrinho.pegar_quantidade_item_carrinho(0))

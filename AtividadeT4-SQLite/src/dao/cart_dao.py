@@ -61,34 +61,34 @@ class CartDAO:
             return False
         return True
     
-    # def atualizar_item(self, item):
-    #     try:
-    #         self.cursor = self.conn.cursor()
-    #         self.cursor.execute(f"""
-    #             UPDATE Products SET
-    #             name = '{item.name}',
-    #             price = {item.price},
-    #             url = {item.url}
-    #             WHERE id = '{item.id}'
-    #         """)
-    #         self.conn.commit()
-    #         self.cursor.close()
-    #     except:
-    #         return False
-    #     return True
+    def atualizar_item(self, item):
+        try:
+            self.cursor = self.conn.cursor()
+            self.cursor.execute(f"""
+                UPDATE Products SET
+                name = '{item.name}',
+                price = {item.price},
+                url = {item.url}
+                WHERE id = '{item.id}'
+            """)
+            self.conn.commit()
+            self.cursor.close()
+        except:
+            return False
+        return True
     
-    def pegar_item_carrinho(self, id):
+    def pegar_quantidade_item_carrinho(self, id):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
-            SELECT * FROM Cart
+            SELECT quantity FROM Cart
             WHERE product_id = '{id}';
         """)
         item = None
         resultado = self.cursor.fetchone()
         if resultado != None:
-            item = Cart(product_id=resultado[0], product_name=resultado[1], product_price=resultado[2], product_url=resultado[3], quantity = resultado[4])
+            quantidade = resultado[0]
         self.cursor.close()
-        return item
+        return quantidade
     
     # def procurar_todos_por_nome(self,name):
     #     self.cursor = self.conn.cursor()
