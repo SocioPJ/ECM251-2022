@@ -5,32 +5,32 @@ from controllers.product_controller import ProductController
 from controllers.cart_controller import CartController
 import time
 
-
-def layout_carrinho(product_carrinho):
+controller_cart = CartController()
+def layout_carrinho():
     try:
         st.write('__________________________________________________________')
-        for item in product_carrinho.getList():
+        for item in controller_cart.pegar_todos_itens():
             with st.container():
                 colA, colB, colC, colD, colE = st.columns(5,gap = 'small')
                 with colA:
-                    st.image(image = item.url, width = 100)
+                    st.image(image = item.product_url, width = 100)
                     pass
                 with colB:
                     st.subheader("Adicionado")
-                    st.write(item.name)
+                    st.write(item.product_name)
                     
                 with colC:
                     st.subheader("Qtd.")
-                    st.write(product_carrinho.verQuantidade())
+                    st.write(item.quantity)
                 with colD:
                     pass
                     st.subheader("Preço")
-                    st.write(item.price)
+                    st.write(item.product_price)
                 with colE:
                     pass
                     st.metric(
                         label = "Valor",
-                        value = format(item.price*product_carrinho.verQuantidade(), '.2f'),
+                        value = format(item.product_price*item.quantity, '.2f'),
                             )
     except:
         print("Erro layout carrinho")
@@ -43,7 +43,7 @@ try:
             width = 75,
             )
         st.title("Carrinho")
-        layout_carrinho(st.session_state["carrinho"])
+        layout_carrinho()
         colA ,colB, colC, colD, colE = st.columns(5)
         with colA:
             pass
