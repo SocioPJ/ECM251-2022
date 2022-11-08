@@ -20,8 +20,9 @@ def layout_visualizar_produtos(): # Layout para visualizar produtos na segunda a
                     if st.button("Remover", key = itens.name):
                         controller.deletar_item(itens.id)
                         
-                st.write('')
-                st.write('')
+                
+                
+                st.caption('__________________________________________________________')
     except:
         print("Erro layout visualizar produtos")
     
@@ -87,6 +88,10 @@ if st.session_state.zoro:
                             st.warning("Preencha todos os campos!")
         except:
             print('Erro cadastrar produtos')
+            
+            
+            
+            
     with tab2: # Segunda aba "Visualizar"
         with st.container():
             layout_visualizar_produtos() # Visualiza todos produtos que estao no banco de dados
