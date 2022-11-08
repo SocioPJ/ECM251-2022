@@ -33,6 +33,12 @@ class CartController():
             return CartDAO.get_instance().pegar_quantidade_item_carrinho(id)
         except:
             print('Erro pegar quantidade de um item no carrinho')
+            
+    def atualizar_quantidade_item_carrinho(self,id,quantidade):
+        try:
+            return CartDAO.get_instance().atualizar_quantidade_item_carrinho(id,quantidade)
+        except:
+            print('erro ao atualizar quantidade produto')
     
     # def atualizar_item(self,item):
     #     try:

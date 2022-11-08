@@ -61,16 +61,15 @@ class CartDAO:
             return False
         return True
     
-    def atualizar_item(self, item):
+    def atualizar_quantidade_item_carrinho(self, id,quantidade):
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                UPDATE Products SET
-                name = '{item.name}',
-                price = {item.price},
-                url = {item.url}
-                WHERE id = '{item.id}'
-            """)
+            UPDATE Cart 
+            SET 
+                quantity = ?
+            WHERE product_id = ?;
+            """,(quantidade,id))
             self.conn.commit()
             self.cursor.close()
         except:
@@ -83,7 +82,7 @@ class CartDAO:
             SELECT quantity FROM Cart
             WHERE product_id = '{id}';
         """)
-        item = None
+        quantidade = None
         resultado = self.cursor.fetchone()
         if resultado != None:
             quantidade = resultado[0]

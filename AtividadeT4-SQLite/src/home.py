@@ -4,6 +4,7 @@ import streamlit as st
 from controllers.user_controller import UserController
 from controllers.product_controller import ProductController
 from controllers.cart_controller import CartController
+from dao.cart_dao import CartDAO
 controller = ProductController()
 controller_carrinho = CartController()
 if "zoro" not in st.session_state:
@@ -20,17 +21,29 @@ def layout_produtos():
                 with colB: 
                     st.text('      Novo | 0 Vendidos')
                 with colC:
-                    st.metric(label = "Preço", value = f'R$ {itens.price}')
-                    quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1, key = itens.id)
-                    if st.button("Adicionar ao carrinho", key = itens.name ):
-                        products_id_in_cart = []
-                        for product in controller_carrinho.pegar_todos_itens():
-                            products_id_in_cart.append(product.product_id)
-                        if itens.id not in products_id_in_cart:
-                            controller_carrinho.inserir_item(Cart(itens.id,itens.name,itens.price,itens.url,quantidade))
-                            st.success('Produto adicionado ao carrinho!')
-                        else:
-                            quantidade_anterior = 
+                    try:
+                        st.metric(label = "Preço", value = f'R$ {itens.price}')
+                        quantidade = st.number_input("Quantidade", min_value=1, max_value=10, value=1, key = itens.id)
+                        st.text(itens.id)
+                        if st.button("Adicionar ao carrinho", key = itens.name ):
+                            products_id_in_cart = []
+                            for product in controller_carrinho.pegar_todos_itens():
+                                products_id_in_cart.append(product.product_id)
+                            st.write(products_id_in_cart)
+                            if itens.id not in products_id_in_cart:
+                                controller_carrinho.inserir_item(Cart(itens.id,itens.name,itens.price,itens.url,quantidade))
+                                st.success('Produto adicionado ao carrinho!')
+                            else:
+                                quantidade_anterior = controller_carrinho.pegar_quantidade_item_carrinho(itens.id)
+                                print(quantidade_anterior)
+                                quantidade_nova = quantidade + quantidade_anterior
+                                print(quantidade_nova)
+                                print(itens.id)
+                                # print(CartDAO.atualizar_quantidade_item_carrinho(itens.id,quantidade))
+                                controller_carrinho.atualizar_quantidade_item_carrinho(itens.id,quantidade_nova)
+                                st.success('Produto adicionado ao carrinho!')
+                    except:
+                        print('Erro ao adicionar ao carrinho')
                 st.write("")
                 st.write('')
     except:
