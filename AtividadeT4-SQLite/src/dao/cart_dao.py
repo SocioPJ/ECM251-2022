@@ -41,8 +41,8 @@ class CartDAO:
             self.cursor = self.conn.cursor()
             self.cursor.execute("""
                 INSERT INTO Cart (product_id, product_name, product_price, product_url, quantity)
-                VALUES(?,?,?,?);
-            """, (item_carrinho.id,item_carrinho.name,item_carrinho.price,item_carrinho.url,item_carrinho.quantity))
+                VALUES(?,?,?,?,?);
+            """, (item_carrinho.product_id,item_carrinho.product_name,item_carrinho.product_price,item_carrinho.product_url,item_carrinho.quantity))
             self.conn.commit()
             self.cursor.close()
         except:
