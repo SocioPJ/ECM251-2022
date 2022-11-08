@@ -22,7 +22,7 @@ class CartController():
         except:
             print("Erro ao pegar todos itens")
             
-    def deletar_item(self, id) -> bool:
+    def deletar_item_carrinho(self, id) -> bool:
         try:
             return CartDAO.get_instance().deletar_item_carrinho(id)
         except:
@@ -31,6 +31,12 @@ class CartController():
     def pegar_quantidade_item_carrinho(self,id):
         try:
             return CartDAO.get_instance().pegar_quantidade_item_carrinho(id)
+        except:
+            print('Erro pegar quantidade de um item no carrinho')
+            
+    def pegar_preco_item_carrinho(self,id):
+        try:
+            return CartDAO.get_instance().pegar_preco_item_carrinho(id)
         except:
             print('Erro pegar quantidade de um item no carrinho')
             

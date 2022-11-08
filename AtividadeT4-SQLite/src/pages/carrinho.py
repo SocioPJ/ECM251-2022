@@ -7,10 +7,12 @@ import time
 
 controller_cart = CartController()
 def layout_carrinho():
+    total = 0
     try:
         st.write('__________________________________________________________')
         for item in controller_cart.pegar_todos_itens():
             with st.container():
+                
                 colA, colB, colC, colD, colE = st.columns(5,gap = 'small')
                 with colA:
                     st.image(image = item.product_url, width = 100)
@@ -29,9 +31,11 @@ def layout_carrinho():
                 with colE:
                     pass
                     st.metric(
+                        
                         label = "Valor",
                         value = format(item.product_price*item.quantity, '.2f'),
                             )
+                    total += item.product_price*item.quantity
     except:
         print("Erro layout carrinho")
         
@@ -54,13 +58,22 @@ try:
         with colD:
             pass
         with colE:
-            pass
+            total = 0
+            for itens in controller_cart.pegar_todos_itens():
+                total += controller_cart.pegar_quantidade_item_carrinho(itens.product_id)*controller_cart.pegar_preco_item_carrinho(itens.product_id)
+            total = format(total, '.2f')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.write('')
+            st.text("Total")
+            st.text(f'R${total}')
+            
         st.write('')
         st.write('')
-        st.write('')
-        st.write('')
-        st.write('')
-        st.write('')
+       
         st.write('')
         st.selectbox(
             label = "Forma de pagamento",
@@ -70,12 +83,13 @@ try:
 
             my_bar = st.progress(0)
             for percent_complete in range(100):
-                time.sleep(0.1)
+                time.sleep(0.01)
                 my_bar.progress(percent_complete + 1)
                 if percent_complete == 99:
                     st.balloons()
                     st.success("Compra finalizada com sucesso!")
-                    st.session_state["carrinho"].remover_todos_produtos()
+                    for itens in controller_cart.pegar_todos_itens():
+                        controller_cart.deletar_item_carrinho(itens.product_id)
             
             
 

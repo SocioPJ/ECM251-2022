@@ -89,6 +89,19 @@ class CartDAO:
         self.cursor.close()
         return quantidade
     
+    def pegar_preco_item_carrinho(self, id):
+        self.cursor = self.conn.cursor()
+        self.cursor.execute(f"""
+            SELECT product_price FROM Cart
+            WHERE product_id = '{id}';
+        """)
+        price = None
+        resultado = self.cursor.fetchone()
+        if resultado != None:
+            price = resultado[0]
+        self.cursor.close()
+        return price
+    
     # def procurar_todos_por_nome(self,name):
     #     self.cursor = self.conn.cursor()
     #     self.cursor.execute(f"""

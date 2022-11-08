@@ -17,12 +17,14 @@ controller_produto = ProductController()
 # item = Cart(produto.id,produto.name,produto.price,produto.url,quantidade) 
 # carrinho = controller_carrinho.inserir_item(item)
 
-print(controller_carrinho.pegar_quantidade_item_carrinho(0))
-quantidade = 2
-controller_carrinho.atualizar_quantidade_item_carrinho(0,quantidade)
-print(controller_carrinho.pegar_quantidade_item_carrinho(0))
+# print(controller_carrinho.pegar_quantidade_item_carrinho(0))
+# quantidade = 2
+# controller_carrinho.atualizar_quantidade_item_carrinho(0,quantidade)
+# print(controller_carrinho.pegar_quantidade_item_carrinho(0))
 
 # print(CartDAO.get_instance().pegar_quantidade_item_carrinho(0))
 # CartDAO.get_instance().atualizar_quantidade_item_carrinho(0,quantidade)
 # print(CartDAO.get_instance().pegar_quantidade_item_carrinho(0))
 
+for itens in controller_carrinho.pegar_todos_itens():
+    controller_carrinho.deletar_item_carrinho(itens.product_id)
