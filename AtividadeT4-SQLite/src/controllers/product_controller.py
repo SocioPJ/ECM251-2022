@@ -31,11 +31,6 @@ class ProductController():
         except:
             raise Exception(" Erro ao deletar item ")
     
-    def atualizar_item(self,item):
-        try:
-            return ProductDAO.get_instance().atualizar_item(item)
-        except:
-            raise Exception("Erro ao atualizar item")
     
     def buscar_todos_itens_nome(self, name) -> list[Product]:
         itens = ProductDAO.get_instance().procurar_todos_por_nome(name)

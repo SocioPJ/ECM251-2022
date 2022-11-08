@@ -4,12 +4,6 @@ from dao.user_dao import UserDAO
 
 class UserController():
     def __init__(self) -> None:
-        # #Carrega os dados dos usuários
-        # self.users = [
-        #     User(name="joao", password="arroz", email="joao@mail.com"),
-        #     User(name="joao2", password="arroz2", email="joao@amaarroz.com"),
-        #     User(name="tais", password="petacular", email="tais_@condida.com"),
-        # ]
         pass
     
     def inserir_usuario(self, usuario) -> bool:
@@ -41,7 +35,7 @@ class UserController():
         usuario = UserDAO.get_instance().procurar_todos_por_email(email)
         return usuario
 
-    def checkLogin(self, email, password):
+    def check_login(self, email, password):
         user_teste = User(name=None, password=password, email=email)
         for user in UserDAO.get_instance().get_all():
             if user.email == user_teste.email and user.password == user_teste.password:

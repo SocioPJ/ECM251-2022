@@ -1,37 +1,43 @@
 import streamlit as st
 from controllers.user_controller import UserController
-from models.carrinho import Carrinho
+from models.cart import Cart
 from controllers.product_controller import ProductController
-from controllers.carrinho_controller import CarrinhoController
+from controllers.cart_controller import CartController
 import time
 
-
-def layout_carrinho(product_carrinho):
+controller_cart = CartController()
+def layout_carrinho():
     try:
         st.write('__________________________________________________________')
-        for item in product_carrinho.getList():
+        for item in controller_cart.pegar_todos_itens():
             with st.container():
+                
                 colA, colB, colC, colD, colE = st.columns(5,gap = 'small')
                 with colA:
-                    st.image(image = item.url, width = 100)
+                    st.image(image = item.product_url, width = 100)
                     pass
                 with colB:
-                    st.subheader("Adicionado")
-                    st.write(item.name)
+                    st.subheader("Produto")
+                    st.text(item.product_name)
                     
                 with colC:
                     st.subheader("Qtd.")
-                    st.write(product_carrinho.verQuantidade())
+                    st.write(item.quantity)
                 with colD:
                     pass
                     st.subheader("Preço")
-                    st.write(item.price)
+                    st.write(item.product_price)
                 with colE:
-                    pass
                     st.metric(
+                        
                         label = "Valor",
-                        value = format(item.price*product_carrinho.verQuantidade(), '.2f'),
+                        value = format(item.product_price*item.quantity, '.2f'),
                             )
+                    if st.button('Remover', key = item.product_id):
+                        controller_cart.deletar_item_carrinho(item.product_id) # Ao clicar, remove produto do carrinho
+                        
+                    
+            st.write('__________________________________________________________')
     except:
         print("Erro layout carrinho")
         
@@ -43,7 +49,8 @@ try:
             width = 75,
             )
         st.title("Carrinho")
-        layout_carrinho(st.session_state["carrinho"])
+        layout_carrinho()
+        
         colA ,colB, colC, colD, colE = st.columns(5)
         with colA:
             pass
@@ -54,13 +61,18 @@ try:
         with colD:
             pass
         with colE:
-            pass
+            total = 0
+            for itens in controller_cart.pegar_todos_itens():
+                total += controller_cart.pegar_quantidade_item_carrinho(itens.product_id)*controller_cart.pegar_preco_item_carrinho(itens.product_id) # Contabilizando total do carrinho pegando o valor e a quantidade do produto em cada item no carrinho
+            total = format(total, '.2f')
+            st.write('')
+            st.write('')
+            st.subheader("Total")
+            st.text(f'R${total}')
+            
         st.write('')
         st.write('')
-        st.write('')
-        st.write('')
-        st.write('')
-        st.write('')
+       
         st.write('')
         st.selectbox(
             label = "Forma de pagamento",
@@ -70,12 +82,13 @@ try:
 
             my_bar = st.progress(0)
             for percent_complete in range(100):
-                time.sleep(0.1)
+                time.sleep(0.01)
                 my_bar.progress(percent_complete + 1)
                 if percent_complete == 99:
                     st.balloons()
                     st.success("Compra finalizada com sucesso!")
-                    st.session_state["carrinho"].remover_todos_produtos()
+                    for itens in controller_cart.pegar_todos_itens():
+                        controller_cart.deletar_item_carrinho(itens.product_id) # Quando a compra é finalizada, todos produtos dentro do carrinho sao removidos
             
             
 
